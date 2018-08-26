@@ -29,23 +29,39 @@
         android:theme="@style/AppTheme"
         android:supportsRtl="true" >
 
+        <activity
+            android:name=".Coding_app_activity.Starting_Logo"
+            android:screenOrientation="landscape">
+
+        </activity>
 
         <activity
-            android:name=".demo.MainActivity"
-            android:screenOrientation="sensorPortrait"
+            android:name=".Coding_app_activity.DB_select"
+            android:screenOrientation="landscape"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Coding_app_activity.Button_allocate"
+            android:screenOrientation="landscape"
+            android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".Coding_app_activity.SettingsActivity"
+            android:screenOrientation="landscape">
+        </activity>
+
+        <activity
+            android:name=".Coding_app_activity.My_coding_algorithm"
+            android:label="@string/simple_activity_name"
+            android:taskAffinity="com.google.blockly.SimpleActivity"
+            android:windowSoftInputMode="stateHidden"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity
-            android:name=".demo.SettingsActivity"
-            android:screenOrientation="sensorPortrait"
-             >
-        </activity>
 
+        </activity>
 
 
 
@@ -54,12 +70,20 @@
             android:label="@string/turtle_activity_name"
             android:taskAffinity="com.google.blockly.demo.TurtleActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
+        <activity
+            android:name=".demo.MainActivity"
+            android:screenOrientation="sensorPortrait"
+            android:label="@string/app_name" >
+
+        </activity>
+        <activity
+            android:name=".demo.SettingsActivity"
+            android:screenOrientation="sensorPortrait"
+            >
+        </activity>
 
 
         <activity
@@ -67,10 +91,7 @@
             android:label="@string/simple_activity_name"
             android:taskAffinity="com.google.blockly.SimpleActivity"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -78,10 +99,7 @@
             android:label="@string/simple_fragment_name"
             android:taskAffinity="com.google.blockly.SimpleFragmentHostActivity"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity

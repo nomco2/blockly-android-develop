@@ -21,6 +21,7 @@ import android.support.annotation.NonNull;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.blockly.android.AbstractBlocklyActivity;
 import com.google.blockly.android.codegen.CodeGenerationRequest;
@@ -38,8 +39,8 @@ import java.util.List;
 public class LuaActivity extends AbstractBlocklyActivity {
     private static final String TAG = "LuaActivity";
 
-    private static final String SAVE_FILENAME = "lua_workspace.xml";
-    private static final String AUTOSAVE_FILENAME = "lua_workspace_temp.xml";
+    private static final String SAVE_FILENAME = "lua_workspace1.xml";
+    private static final String AUTOSAVE_FILENAME = "lua_workspace_temp1.xml";
     // Add custom blocks to this list.
     private static final List<String> BLOCK_DEFINITIONS = DefaultBlocks.getAllBlockDefinitions();
     private static final List<String> LUA_GENERATORS = Arrays.asList();
@@ -61,6 +62,7 @@ public class LuaActivity extends AbstractBlocklyActivity {
                         public void run() {
                             mGeneratedTextView.setText(generatedCode);
                             updateTextMinWidth();
+                            Toast.makeText(getApplicationContext(), "d", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }
