@@ -14,6 +14,52 @@
   -->
 
 <toolbox>
+    <category name="Logic2" colour="210">
+
+        <block type="controls_if"></block>
+        <block type="controls_whileUntil"></block>
+        <block type="logic_compare"></block>
+        <block type="logic_boolean"></block>
+        <block type="text">
+            <field name="NUM">42</field>
+        </block>
+        <block type="controls_for">
+            <value name="FROM">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+            <value name="TO">
+                <block type="math_number">
+                    <field name="NUM">10</field>
+                </block>
+            </value>
+            <value name="BY">
+                <block type="math_number">
+                    <field name="NUM">1</field>
+                </block>
+            </value>
+        </block>
+
+        <block type="math_arithmetic">
+            <field name="OP">ADD</field>
+            <value name="A">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+            <value name="B">
+                <shadow type="math_number">
+                    <field name="NUM">1</field>
+                </shadow>
+            </value>
+        </block>
+
+
+
+
+    </category>
+
     <category name="Logic" colour="210">
         <block type="controls_if"></block>
         <block type="controls_ifelse"></block>
@@ -302,5 +348,8 @@
         </block>
     </category>
     <category name="Variables" colour="330" custom="VARIABLE" />
+
     <!-- <category name="Functions" colour="290" custom="PROCEDURE" /> -->
+
+
 </toolbox>

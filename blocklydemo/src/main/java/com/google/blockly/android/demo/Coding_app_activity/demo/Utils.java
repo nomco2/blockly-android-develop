@@ -1,4 +1,4 @@
-package com.google.blockly.android.demo.demo;
+package com.google.blockly.android.demo.Coding_app_activity.demo;
 
 import android.app.ProgressDialog;
 import android.content.Context;

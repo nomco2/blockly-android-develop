@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.google.blockly.android.demo.R;
-import com.google.blockly.android.demo.demo.ServerPref;
+import com.google.blockly.android.demo.Coding_app_activity.demo.ServerPref;
 
 
 public class SettingsActivity extends Activity {

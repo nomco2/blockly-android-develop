@@ -14,6 +14,7 @@
  */
 package com.google.blockly.android.demo.Coding_app_activity;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
@@ -22,9 +23,11 @@ import android.widget.Toast;
 
 import com.google.blockly.android.AbstractBlocklyActivity;
 import com.google.blockly.android.codegen.CodeGenerationRequest;
-import com.google.blockly.android.codegen.LoggingCodeGeneratorCallback;
+
+import com.google.blockly.android.demo.Coding_app_activity.demo.ServerPref;
+import com.google.blockly.android.demo.Coding_app_activity.demo.TelnetServer;
+import com.google.blockly.android.demo.Coding_app_activity.demo.Utils;
 import com.google.blockly.model.DefaultBlocks;
-import com.google.blockly.util.JavascriptUtil;
 
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +44,56 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
     private static final String My_coding_toolbox_1 = "default/My_coding_toolbox_1.xml";
 
 
+    ServerPref serverPref;
+    Utils utils;
+    TelnetServer telnet;
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        utils = new Utils(this);
+        serverPref = new ServerPref(this);
+        try{
+            connect();
+        }catch (Exception e){
+            Toast.makeText(this, "not connecnt",Toast.LENGTH_SHORT).show();
+        }
+
+    }
+
+
+    //telnet 관련 메소드
+    public void connect() {
+        telnet = new TelnetServer(My_coding_algorithm.this, this);
+        telnet.start();
+    }
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if(telnet != null)
+            telnet.disconnect();
+    }
+
+    private class NetworkThread extends Thread {
+        String telnet_send_data;
+
+        public NetworkThread(String send_data){
+            telnet_send_data = send_data;
+        }
+
+        public void run() {
+            telnet.out.println(telnet_send_data);
+            telnet.out.flush();
+        }
+    }
+
+
+
     // Add custom blocks to this list.
     private static final List<String> BLOCK_DEFINITIONS = DefaultBlocks.getAllBlockDefinitions();
     private static final List<String> JAVASCRIPT_GENERATORS = Arrays.asList(
@@ -49,7 +102,6 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
     );
 
     private final Handler mHandler = new Handler();
-    private WebView mTurtleWebview;
     private final CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
             new CodeGenerationRequest.CodeGeneratorCallback() {
                 @Override
@@ -65,6 +117,11 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //                                    + JavascriptUtil.makeJsString(generatedCode) + ")";
 //                            mTurtleWebview.loadUrl("javascript:" + encoded);
                             Toast.makeText(getApplicationContext(),generatedCode.toString(), Toast.LENGTH_LONG).show();
+
+                            //텔넷 데이터 보내기
+                            NetworkThread thread = new NetworkThread(generatedCode.toString());
+                            thread.start();
+                            thread.interrupt();
                         }
                     });
                 }
@@ -107,6 +164,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
     @NonNull
     protected String getWorkspaceSavePath() {
         return SAVE_FILENAME;
+
     }
 
     /**

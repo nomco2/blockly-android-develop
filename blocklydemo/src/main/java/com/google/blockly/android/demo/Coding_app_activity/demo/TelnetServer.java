@@ -1,9 +1,11 @@
-package com.google.blockly.android.demo.demo;
+package com.google.blockly.android.demo.Coding_app_activity.demo;
 
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.util.Log;
+
+import com.google.blockly.android.demo.Coding_app_activity.My_coding_algorithm;
 
 import org.apache.commons.net.telnet.TelnetClient;
 
@@ -12,7 +14,7 @@ import java.io.InputStream;
 import java.io.PrintStream;
 
 public class TelnetServer extends Thread implements Runnable {
-    MainActivity mainActivity;
+    My_coding_algorithm mainActivity;
 
     public PrintStream out;
     public InputStream in;
@@ -24,7 +26,7 @@ public class TelnetServer extends Thread implements Runnable {
     public ServerPref serverPref;
     public TelnetClient telnet;
 
-    TelnetServer(MainActivity mainActivity, Context context) {
+    public TelnetServer(My_coding_algorithm mainActivity, Context context) {
         this.mainActivity = mainActivity;
         serverPref = new ServerPref(context);
     }
@@ -66,7 +68,7 @@ public class TelnetServer extends Thread implements Runnable {
                     if (connected && sb.toString().length() > 3 && !sb.toString().substring(0, 3).equals("220")) {
                         showExitAlert();
                     }
-                    mainActivity.hideOrShow(getURL(sb.toString()));
+//                    mainActivity.hideOrShow(getURL(sb.toString()));
                     if (sb.toString().length() < 4)
                         connected = false;
                 }
@@ -104,13 +106,13 @@ public class TelnetServer extends Thread implements Runnable {
     }
 
     void postToEditText(final String msg) {
-        mainActivity.mHandler.post(new Runnable() {
-            public void run() {
-                String lastLine = mainActivity.editText1.getText().toString();
-                mainActivity.editText1.setText(lastLine + "\n" + msg);
-                Log.i("msg @@ ", msg);
-            }
-        });
+//        mainActivity.mHandler.post(new Runnable() {
+//            public void run() {
+//                String lastLine = mainActivity.editText1.getText().toString();
+//                mainActivity.editText1.setText(lastLine + "\n" + msg);
+//                Log.i("msg @@ ", msg);
+//            }
+//        });
     }
 
 
