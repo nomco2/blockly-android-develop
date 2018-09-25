@@ -42,6 +42,10 @@ public final class DefaultBlocks {
     /** Path to block definitions for blocks related to variables. */
     public static final String VARIABLE_BLOCKS_PATH = "default/variable_blocks.json";
 
+    /** 커스텀 블럭 */
+    public static final String Custom_blocks = "default/my_custom_blocks.json";
+
+
     /** Path to a toolbox that has most of the default blocks organized into categories. */
     public static final String TOOLBOX_PATH = "default/toolbox.xml";
 
@@ -72,7 +76,8 @@ public final class DefaultBlocks {
                     MATH_BLOCKS_PATH,
                     PROCEDURE_BLOCKS_PATH,
                     TEXT_BLOCKS_PATH,
-                    VARIABLE_BLOCKS_PATH
+                    VARIABLE_BLOCKS_PATH,
+                    Custom_blocks
             ));
         }
         return ALL_BLOCK_DEFINITIONS;

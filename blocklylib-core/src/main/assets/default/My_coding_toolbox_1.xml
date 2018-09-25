@@ -16,6 +16,8 @@
 <toolbox>
     <category name="Logic2" colour="210">
 
+        <block type="digital_pin_select"></block>
+
         <block type="controls_if"></block>
         <block type="controls_whileUntil"></block>
         <block type="logic_compare"></block>

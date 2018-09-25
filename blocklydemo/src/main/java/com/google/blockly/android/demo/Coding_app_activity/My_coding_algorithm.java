@@ -108,15 +108,14 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 public void onFinishCodeGeneration(final String generatedCode) {
                     // Sample callback.
                     Log.i(TAG, "generatedCode:\n" + generatedCode);
-                    Toast.makeText(getApplicationContext(), generatedCode,
-                            Toast.LENGTH_LONG).show();
+//                    Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_LONG).show();
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
 //                            String encoded = "Turtle.execute("
 //                                    + JavascriptUtil.makeJsString(generatedCode) + ")";
 //                            mTurtleWebview.loadUrl("javascript:" + encoded);
-                            Toast.makeText(getApplicationContext(),generatedCode.toString(), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(),generatedCode.toString(), Toast.LENGTH_LONG).show();
 
                             //텔넷 데이터 보내기
                             NetworkThread thread = new NetworkThread(generatedCode.toString());

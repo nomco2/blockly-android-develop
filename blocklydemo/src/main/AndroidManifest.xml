@@ -32,7 +32,10 @@
         <activity
             android:name=".Coding_app_activity.Starting_Logo"
             android:screenOrientation="landscape">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <activity
@@ -56,10 +59,7 @@
             android:taskAffinity="com.google.blockly.SimpleActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
 
         </activity>
 
@@ -70,6 +70,7 @@
             android:label="@string/turtle_activity_name"
             android:taskAffinity="com.google.blockly.demo.TurtleActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
+
 
         </activity>
 
