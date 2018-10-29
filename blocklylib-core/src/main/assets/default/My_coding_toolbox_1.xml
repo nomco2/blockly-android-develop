@@ -17,6 +17,12 @@
     <category name="Logic2" colour="210">
 
         <block type="digital_pin_select"></block>
+        <block type="control_while_loop"></block>
+        <block type="example_date"></block>
+
+
+
+
 
         <block type="controls_if"></block>
         <block type="controls_whileUntil"></block>
@@ -62,6 +68,7 @@
 
     </category>
 
+    <!--
     <category name="Logic" colour="210">
         <block type="controls_if"></block>
         <block type="controls_ifelse"></block>
@@ -350,7 +357,7 @@
         </block>
     </category>
     <category name="Variables" colour="330" custom="VARIABLE" />
-
+-->
     <!-- <category name="Functions" colour="290" custom="PROCEDURE" /> -->
 
 

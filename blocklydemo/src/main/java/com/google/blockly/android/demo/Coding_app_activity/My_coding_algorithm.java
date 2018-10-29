@@ -108,7 +108,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 public void onFinishCodeGeneration(final String generatedCode) {
                     // Sample callback.
                     Log.i(TAG, "generatedCode:\n" + generatedCode);
-//                    Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_LONG).show();
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -118,9 +118,11 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //                            Toast.makeText(getApplicationContext(),generatedCode.toString(), Toast.LENGTH_LONG).show();
 
                             //텔넷 데이터 보내기
-                            NetworkThread thread = new NetworkThread(generatedCode.toString());
-                            thread.start();
-                            thread.interrupt();
+                            Toast.makeText(getApplicationContext(), generatedCode.toString(), Toast.LENGTH_LONG).show();
+
+//                            NetworkThread thread = new NetworkThread(generatedCode.toString());
+//                            thread.start();
+//                            thread.interrupt();
                         }
                     });
                 }

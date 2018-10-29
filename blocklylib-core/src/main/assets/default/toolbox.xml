@@ -15,6 +15,10 @@
 
 <toolbox>
     <category name="Logic" colour="210">
+        <block type="digital_pin_select"></block>
+        <block type="control_while_loop"></block>
+        <block type="example_date"></block>
+
         <block type="controls_if"></block>
         <block type="controls_ifelse"></block>
         <block type="logic_compare"></block>

@@ -56,12 +56,9 @@
             android:taskAffinity="com.google.blockly.SimpleActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="landscape">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
+
 
 
 
@@ -70,7 +67,6 @@
             android:label="@string/turtle_activity_name"
             android:taskAffinity="com.google.blockly.demo.TurtleActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
-
 
         </activity>
 
@@ -86,8 +82,13 @@
             android:label="@string/simple_activity_name"
             android:taskAffinity="com.google.blockly.SimpleActivity"
             android:windowSoftInputMode="stateHidden">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
+
+
 
         <activity
             android:name=".SimpleFragmentHostActivity"
@@ -102,10 +103,7 @@
             android:label="@string/lua_activity_name"
             android:taskAffinity="com.google.blockly.LuaActivity"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -114,10 +112,7 @@
             android:theme="@style/StylesDemoTheme"
             android:taskAffinity="com.google.blockly.demo.MainActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -125,10 +120,7 @@
             android:label="@string/split_activity_name"
             android:taskAffinity="com.google.blockly.demo.SplitActivity"
             android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
 
@@ -139,10 +131,7 @@
             android:taskAffinity="com.google.blockly.demo.StylesActivity"
             android:theme="@style/StylesDemoTheme"
             android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -150,10 +139,7 @@
             android:label="@string/flyout_activity_name"
             android:taskAffinity="com.google.blockly.demo.FlyoutDemos"
             android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -161,9 +147,7 @@
             android:label="@string/always_open_toolbox_activity_name"
             android:taskAffinity="com.google.blockly.demo.FlyoutDemos"
             android:windowSoftInputMode="stateHidden|adjustPan">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+
         </activity>
 
         <activity
@@ -171,9 +155,7 @@
             android:label="@string/no_categories_toolbox_activity_name"
             android:taskAffinity="com.google.blockly.demo.FlyoutDemos"
             android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-            </intent-filter>
+
         </activity>
     </application>
 

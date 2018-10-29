@@ -38,6 +38,7 @@ public class SimpleActivity extends AbstractBlocklyActivity {
     private static final List<String> JAVASCRIPT_GENERATORS = Arrays.asList(
         // Custom block generators go here. Default blocks are already included.
         // TODO(#99): Include Javascript defaults when other languages are supported.
+            "my_coding_algorithm/my_coding_algorithm.js"
     );
 
     CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =

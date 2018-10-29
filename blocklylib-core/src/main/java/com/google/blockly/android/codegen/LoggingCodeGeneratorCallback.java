@@ -41,4 +41,6 @@ public class LoggingCodeGeneratorCallback implements CodeGenerationRequest.CodeG
             Toast.makeText(mContext, generatedCode, Toast.LENGTH_LONG).show();
         }
     }
+
+
 }
