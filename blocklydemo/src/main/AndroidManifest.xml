@@ -56,11 +56,20 @@
             android:taskAffinity="com.google.blockly.SimpleActivity"
             android:windowSoftInputMode="stateHidden"
             android:screenOrientation="landscape">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
 
+        <activity
+            android:name=".SimpleActivity"
+            android:label="@string/simple_activity_name"
+            android:taskAffinity="com.google.blockly.SimpleActivity"
+            android:windowSoftInputMode="stateHidden">
 
+        </activity>
 
         <activity
             android:name=".TurtleActivity"
@@ -77,16 +86,7 @@
         </activity>
 
 
-        <activity
-            android:name=".SimpleActivity"
-            android:label="@string/simple_activity_name"
-            android:taskAffinity="com.google.blockly.SimpleActivity"
-            android:windowSoftInputMode="stateHidden">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
 
 
 

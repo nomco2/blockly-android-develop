@@ -19,6 +19,8 @@
         <block type="digital_pin_select"></block>
         <block type="control_while_loop"></block>
         <block type="example_date"></block>
+        <block type="digital_pin_on"></block>
+
 
 
 

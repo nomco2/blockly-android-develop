@@ -5,3 +5,12 @@ Blockly.JavaScript['control_while_loop'] = function(block) {
   var code = '...;\n';
   return code;
 };
+
+Blockly.JavaScript['digital_pin_on'] = function(block) {
+  var dropdown_digital_select = block.getFieldValue('digital_select');
+  // TODO: Assemble JavaScript into code variable.
+
+  var code = "{'digital_on':'" + dropdown_digital_select + "'}";
+  //code.concat("{'digital_on':'", dropdown_digital_select, "'}");
+  return code;
+};
