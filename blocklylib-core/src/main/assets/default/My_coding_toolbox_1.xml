@@ -16,16 +16,34 @@
 <toolbox>
     <category name="Logic2" colour="210">
 
-        <block type="digital_pin_select"></block>
+
+        <block type="equal"></block>
+        <block type="unequal2"></block>
         <block type="control_while_loop"></block>
-        <block type="example_date"></block>
-        <block type="digital_pin_on"></block>
+        <block type="int_data_change"></block>
+
+        <!--<block type="controls_for">-->
+            <!--<value name="FROM">-->
+                <!--<block type="math_number">-->
+                    <!--<field name="NUM">1</field>-->
+                <!--</block>-->
+            <!--</value>-->
+            <!--<value name="TO">-->
+                <!--<block type="math_number">-->
+                    <!--<field name="NUM">10</field>-->
+                <!--</block>-->
+            <!--</value>-->
+            <!--<value name="BY">-->
+                <!--<block type="math_number">-->
+                    <!--<field name="NUM">1</field>-->
+                <!--</block>-->
+            <!--</value>-->
+        <!--</block>-->
+    </category>
 
 
 
-
-
-
+<!--
         <block type="controls_if"></block>
         <block type="controls_whileUntil"></block>
         <block type="logic_compare"></block>
@@ -66,9 +84,7 @@
         </block>
 
 
-
-
-    </category>
+-->
 
     <!--
     <category name="Logic" colour="210">
