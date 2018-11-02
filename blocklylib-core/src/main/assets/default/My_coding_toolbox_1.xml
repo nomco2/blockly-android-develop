@@ -18,39 +18,25 @@
 
 
         <block type="equal"></block>
-        <block type="unequal2"></block>
         <block type="control_while_loop">
-            <value name="NAME">
-                <block type="math_number">
-                    <field name="NUM">1</field>
+            <value name="NAME1">
+                <block type="number_input">
+                    <field name="NAME">1</field>
                 </block>
             </value>
         </block>
-        <!--<block type="int_data_change">-->
-            <!--<value name="NAME">-->
-                <!--<block type="math_number">-->
-                    <!--<field name="NUM">1</field>-->
-                <!--</block>-->
-            <!--</value>-->
-        <!--</block>-->
 
-        <block type="controls_for">
-            <value name="FROM">
-                <block type="math_number">
-                    <!--<field name="NUM">1</field>-->
-                </block>
-            </value>
-            <value name="TO">
-                <block type="math_number">
-                    <field name="NUM">10</field>
-                </block>
-            </value>
-            <value name="BY">
-                <block type="math_number">
-                    <field name="NUM">1</field>
+
+        <block type="int_data_change">
+            <value name="NAME1">
+                <block type="number_input">
+                    <field name="NAME">1</field>
                 </block>
             </value>
         </block>
+
+
+
     </category>
 
 
