@@ -39,14 +39,14 @@
       {
         "type": "input_value",
         "name": "NAME",
-        "check": "equal"
+        "check": "Number"
       },
       {
         "type": "input_dummy"
       },
       {
         "type": "input_statement",
-        "name": "NAME"
+        "name": "NAME1"
       }
     ],
     "inputsInline": true,
@@ -103,10 +103,26 @@
       },
       {
         "type": "input_value",
-        "name": "NAME"
+        "name": "NAME",
+        "check": "Number"
       }
     ],
     "inputsInline": true,
+    "output": null,
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "int_data",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "NAME",
+        "variable": "Number"
+      }
+    ],
     "output": null,
     "colour": 230,
     "tooltip": "",

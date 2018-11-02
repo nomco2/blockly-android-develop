@@ -1,3 +1,14 @@
+
+Blockly.JavaScript['int_data'] = function(block) {
+  var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...';
+  // TODO: Change ORDER_NONE to the correct strength.
+  return [code, Blockly.JavaScript.ORDER_NONE];
+};
+
+
+
 Blockly.JavaScript['control_while_loop'] = function(block) {
   var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
   var statements_name = Blockly.JavaScript.statementToCode(block, 'NAME');
@@ -50,3 +61,4 @@ Blockly.JavaScript['int_data_change'] = function(block) {
   // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
