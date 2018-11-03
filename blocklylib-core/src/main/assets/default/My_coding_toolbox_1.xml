@@ -35,10 +35,17 @@
             </value>
         </block>
 
+        <block type="int_data_change">
+            <value name="NAME1">
+                <block type="string_input">
+                    <field name="NAME">hello</field>
+                </block>
+            </value>
+        </block>
 
 
     </category>
-
+    <category name="Variables" colour="330" custom="VARIABLE" />
 
 
 <!--

@@ -94,6 +94,22 @@
     "colour": 300,
     "tooltip": "",
     "helpUrl": ""
+  },
+  {
+    "type": "string_input",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "NAME",
+        "text": "default"
+      }
+    ],
+    "inputsInline": true,
+    "output": null,
+    "colour": 230,
+    "tooltip": "",
+    "helpUrl": ""
   }
 
 
