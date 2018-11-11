@@ -14,6 +14,7 @@
  */
 package com.google.blockly.android.demo.Coding_app_activity;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -31,6 +32,7 @@ import com.google.blockly.model.DefaultBlocks;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 /**
  * Simplest implementation of AbstractBlocklyActivity.
@@ -109,7 +111,23 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 public void onFinishCodeGeneration(final String generatedCode) {
                     // Sample callback.
                     Log.i(TAG, "generatedCode:\n" + generatedCode);
-                    Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_SHORT).show();
+
+                    int find_var = generatedCode.indexOf("var");
+//                    Log.i(TAG, "find var:\n" + find_var);
+                    if(find_var == 0){
+                        int find_semiconlon = generatedCode.indexOf(";");
+                        Log.i(TAG, "find semicolon:\n" + find_semiconlon);
+                        for(int i=0; i<find_semiconlon + 1; i++){
+
+
+                        }
+
+                    }else{
+
+                    }
+
+
                     mHandler.post(new Runnable() {
                         @Override
                         public void run() {
@@ -119,7 +137,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //                            Toast.makeText(getApplicationContext(),generatedCode.toString(), Toast.LENGTH_LONG).show();
 
                             //텔넷 데이터 보내기
-                            Toast.makeText(getApplicationContext(), generatedCode.toString(), Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), generatedCode.toString(), Toast.LENGTH_LONG).show();
 
 //                            NetworkThread thread = new NetworkThread(generatedCode.toString());
 //                            thread.start();
@@ -134,8 +152,32 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
     @NonNull
     @Override
     protected List<String> getBlockDefinitionsJsonPaths() {
+
+//        BLOCK_DEFINITIONS.add(set_locale_language());
         return BLOCK_DEFINITIONS;
     }
+
+    //언어별 설정을 위하여 DefaultBlocks.java에 있던 VARIABLE_BLOCKS_PATH String을 빼고 여기서 따로 추가해줌
+    private String set_locale_language(){
+
+        Locale systemLocale = getApplicationContext().getResources().getConfiguration().locale;
+        String strDisplayCountry = systemLocale.getDisplayCountry(); // 대한민국
+        String strCountry = systemLocale.getCountry(); // KR
+        String strLanguage = systemLocale.getLanguage(); // ko
+
+        String VARIABLE_BLOCKS_PATH;
+        if(strLanguage == "ko"){
+            VARIABLE_BLOCKS_PATH = "default/variable_blocks_kr.json";
+
+        }else{
+            VARIABLE_BLOCKS_PATH = "default/variable_blocks.json";
+        }
+        return VARIABLE_BLOCKS_PATH;
+
+
+    }
+
+
 
     @NonNull
     @Override

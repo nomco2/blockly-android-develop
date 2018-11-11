@@ -1,0 +1,38 @@
+[
+  {
+    "type": "variables_get",
+    "message0": "변수 %1 가져오기",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "item"
+      }
+    ],
+    "output": null,
+    "colour": 330,
+    "tooltip": "Returns the value of this variable.",
+    "helpUrl": "https://github.com/google/blockly/wiki/Variables#get"
+  },
+  {
+    "type": "variables_set",
+    "message0": "변수 %1 를 %2 로 정하기",
+    "args0": [
+      {
+        "type": "field_variable",
+        "name": "VAR",
+        "variable": "item"
+      },
+      {
+        "type": "input_value",
+        "name": "VALUE"
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "inputsInline": true,
+    "colour": 330,
+    "tooltip": "Sets this variable to be equal to the input.",
+    "helpUrl": "https://github.com/google/blockly/wiki/Variables#set"
+  }
+]

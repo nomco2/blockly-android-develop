@@ -1,5 +1,7 @@
 package com.google.blockly.model;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.v4.util.ArrayMap;
 
 import com.google.blockly.android.codegen.LanguageDefinition;
@@ -16,6 +18,7 @@ import com.google.blockly.model.mutator.ProceduresIfReturnMutator;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 /**
@@ -40,7 +43,8 @@ public final class DefaultBlocks {
     /** Path to block definitions for blocks related to strings/text. */
     public static final String TEXT_BLOCKS_PATH = "default/text_blocks.json";
     /** Path to block definitions for blocks related to variables. */
-    public static final String VARIABLE_BLOCKS_PATH = "default/variable_blocks.json";
+    public static final String VARIABLE_BLOCKS_PATH = "default/variable_blocks_kr.json";
+    //나중에 액티비티에서 추가
 
     /** 커스텀 블럭 */
     public static final String Custom_blocks = "default/my_custom_blocks.json";
@@ -147,5 +151,10 @@ public final class DefaultBlocks {
     }
 
     // Not for instantiation.
-    private DefaultBlocks() {}
+    private DefaultBlocks() {
+
+
+    }
+
+
 }

@@ -25,27 +25,18 @@
                 </block>
             </value>
         </block>
+        <block type="control_if_start"></block>
 
 
-        <block type="int_data_change">
-            <value name="NAME1">
-                <block type="number_input">
-                    <field name="NAME">1</field>
-                </block>
-            </value>
-        </block>
 
-        <block type="int_data_change">
-            <value name="NAME1">
-                <block type="string_input">
-                    <field name="NAME">hello</field>
-                </block>
-            </value>
-        </block>
+
+
 
 
     </category>
-    <category name="Variables" colour="330" custom="VARIABLE" />
+    <category name="Variables" colour="330" custom="VARIABLE" >
+
+    </category>
 
 
 <!--

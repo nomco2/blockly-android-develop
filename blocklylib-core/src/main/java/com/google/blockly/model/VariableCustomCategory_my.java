@@ -28,7 +28,7 @@ import java.util.SortedSet;
 /**
  * Class for building {@link BlocklyCategory categories} for variables blocks.
  */
-public final class VariableCustomCategory implements CustomCategory {
+public final class VariableCustomCategory_my implements CustomCategory {
     private static final String TAG = "VariableCategoryFactory";
 
     public static final String ACTION_CREATE_VARIABLE = "CREATE_VARIABLE";
@@ -43,7 +43,7 @@ public final class VariableCustomCategory implements CustomCategory {
     private NameManager mVariableNameManager;
     private BlockFactory mBlockFactory;
 
-    public VariableCustomCategory(BlocklyController controller) {
+    public VariableCustomCategory_my(BlocklyController controller) {
         mController = controller;
         mContext = controller.getContext();
         mVariableNameManager = mController.getWorkspace().getVariableNameManager();
@@ -124,8 +124,5 @@ public final class VariableCustomCategory implements CustomCategory {
             varBlock.getFieldByName(GET_VAR_FIELD).setFromString(name);
             category.addItem(new BlocklyCategory.BlockItem(varBlock));
         }
-
-
-
     }
 }
