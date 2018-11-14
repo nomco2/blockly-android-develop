@@ -117,15 +117,39 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //                    Log.i(TAG, "find var:\n" + find_var);
                     if(find_var == 0){
                         int find_semiconlon = generatedCode.indexOf(";");
-                        Log.i(TAG, "find semicolon:\n" + find_semiconlon);
-                        for(int i=0; i<find_semiconlon + 1; i++){
+//                        Log.i(TAG, "find semicolon:\n" + find_semiconlon);
 
+
+
+                        for(int i=0; i<find_semiconlon + 1; i++){
+                            //var 개수 찾기
 
                         }
-
-                    }else{
-
                     }
+                    int find_brace = generatedCode.indexOf("{");
+                    Log.i(TAG, "find_brace:\n" + find_brace);
+                    String spilt_string = generatedCode.substring(find_brace);
+                    Log.i(TAG, "spilt_string:\n" + spilt_string);
+                    char[] c_arr = spilt_string.toCharArray();
+                    Log.i(TAG, "c_arr:\n" + c_arr[0]);
+
+                    int open_brace_counter = 0;
+                    int close_brace_counter = 0;
+                    int[] end_brace_number;
+
+                    for(int i : c_arr){
+                        if(c_arr[i] == '{'){
+                            open_brace_counter++;
+                        }else if(c_arr[i] == '}'){
+                            close_brace_counter++;
+                        }
+
+                        if(open_brace_counter == close_brace_counter){
+
+                        }
+                    }
+
+
 
 
                     mHandler.post(new Runnable() {
@@ -221,4 +245,30 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
     protected String getWorkspaceAutosavePath() {
         return AUTOSAVE_FILENAME;
     }
+
+    class One_circle_code_bolcks{
+        public String input_string;
+        public int type_of_block; // if 1~3, for 4~6 등등 정해야 될 듯
+        private byte[] add_byte;
+
+        //{'if':[{({'equal':[{'item':'(1)'}]};)},{'control_type':1},{  '{for':[{'infinity':1},{'control_type':1},{}]}}]};
+        private void One_circle_code_bolcks(String input_string){
+            String spilt_string = input_string.substring(3);
+            int find_dot = spilt_string.indexOf("'");  //{'if' 까지 길이를 찾음
+            spilt_string = input_string.substring(0,find_dot); // {'if' 까지 자름
+            if(spilt_string.indexOf("control_if_start") != -1){ //control_if_start를 찾으면
+                type_of_block = 1; //이런식으로 정해야 될듯
+            }
+//            Log.i(TAG, "find semicolon:\n" + find_dot);
+        }
+
+        //안에 다른 type의 시작 블록(if나 for같은)게 있을 때
+        private One_circle_code_bolcks if_other_type_of_blocks_inner_class(String input_string){
+            One_circle_code_bolcks return_class = new One_circle_code_bolcks();
+
+            return return_class;
+        }
+
+    }
+
 }

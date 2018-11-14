@@ -5,25 +5,11 @@
     "args0": [
       {
         "type": "input_value",
-        "name": "NAME1",
-        "check": [
-          "String",
-          "Number",
-          "Boolean",
-          "int_variable",
-          "string_variable"
-        ]
+        "name": "NAME1"
       },
       {
         "type": "input_value",
-        "name": "NAME2",
-        "check": [
-          "String",
-          "Number",
-          "Boolean",
-          "int_variable",
-          "string_variable"
-        ]
+        "name": "NAME2"
       }
     ],
     "inputsInline": true,
@@ -97,14 +83,14 @@
     "args0": [
       {
         "type": "input_value",
-        "name": "NAME"
+        "name": "value_input_1"
       },
       {
         "type": "input_dummy"
       },
       {
         "type": "input_statement",
-        "name": "NAME2"
+        "name": "statement_input_1"
       }
     ],
     "inputsInline": true,
@@ -113,7 +99,80 @@
     "colour": 225,
     "tooltip": "",
     "helpUrl": ""
+  },
+  {
+    "type": "control_iot_data_start",
+    "message0": "통신 메시지 =  %1 맞을 때 %2 %3",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "value_input_1"
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "statement_input_1"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 225,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  //for 계열
+  {
+    "type": "control_times_loop",
+    "message0": "반복 %1 회 %2 %3",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "loop_time",
+        "value": 0,
+        "min": 0
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "statement_input_1"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 45,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "control_unlimited_loop",
+    "message0": "무한반복 %1 %2",
+    "args0": [
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "statement_input_1"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 45,
+    "tooltip": "",
+    "helpUrl": ""
   }
+
+
+
+
 
 
 
