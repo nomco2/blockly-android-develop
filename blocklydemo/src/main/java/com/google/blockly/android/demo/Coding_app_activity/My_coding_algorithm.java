@@ -30,6 +30,9 @@ import com.google.blockly.android.demo.Coding_app_activity.demo.TelnetServer;
 import com.google.blockly.android.demo.Coding_app_activity.demo.Utils;
 import com.google.blockly.model.DefaultBlocks;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -113,41 +116,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                     Log.i(TAG, "generatedCode:\n" + generatedCode);
                     Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_SHORT).show();
 
-                    int find_var = generatedCode.indexOf("var");
-//                    Log.i(TAG, "find var:\n" + find_var);
-                    if(find_var == 0){
-                        int find_semiconlon = generatedCode.indexOf(";");
-//                        Log.i(TAG, "find semicolon:\n" + find_semiconlon);
-
-
-
-                        for(int i=0; i<find_semiconlon + 1; i++){
-                            //var 개수 찾기
-
-                        }
-                    }
-                    int find_brace = generatedCode.indexOf("{");
-                    Log.i(TAG, "find_brace:\n" + find_brace);
-                    String spilt_string = generatedCode.substring(find_brace);
-                    Log.i(TAG, "spilt_string:\n" + spilt_string);
-                    char[] c_arr = spilt_string.toCharArray();
-                    Log.i(TAG, "c_arr:\n" + c_arr[0]);
-
-                    int open_brace_counter = 0;
-                    int close_brace_counter = 0;
-                    int[] end_brace_number;
-
-                    for(int i : c_arr){
-                        if(c_arr[i] == '{'){
-                            open_brace_counter++;
-                        }else if(c_arr[i] == '}'){
-                            close_brace_counter++;
-                        }
-
-                        if(open_brace_counter == close_brace_counter){
-
-                        }
-                    }
+                    One_circle_code_bolcks mOne_circle_code_bolcks = new One_circle_code_bolcks(generatedCode);
 
 
 
@@ -246,28 +215,113 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         return AUTOSAVE_FILENAME;
     }
 
+
+
+    //generate code 처리되는 클래스
     class One_circle_code_bolcks{
         public String input_string;
         public int type_of_block; // if 1~3, for 4~6 등등 정해야 될 듯
-        private byte[] add_byte;
+        private byte[] send_byte;
 
-        //{'if':[{({'equal':[{'item':'(1)'}]};)},{'control_type':1},{  '{for':[{'infinity':1},{'control_type':1},{}]}}]};
-        private void One_circle_code_bolcks(String input_string){
-            String spilt_string = input_string.substring(3);
-            int find_dot = spilt_string.indexOf("'");  //{'if' 까지 길이를 찾음
-            spilt_string = input_string.substring(0,find_dot); // {'if' 까지 자름
-            if(spilt_string.indexOf("control_if_start") != -1){ //control_if_start를 찾으면
-                type_of_block = 1; //이런식으로 정해야 될듯
+        //재귀함수 호출을 위한 [{}] json 덩어리 String 나누기
+        private int block_count = 0;
+        private String temp_block_string[];
+
+
+//        var item;
+//
+//
+//    [{'block_type':'if','control_type':1,'value1':'({'equal':[{'item':''}]})', 'statement1':'  item = 0;
+//      item = (typeof item == 'number' ? item : 0) + item;
+//    '}][{'block_type':'if','control_type':1,'value1':'', 'statement1':''}]
+
+        private One_circle_code_bolcks(String input_string){
+
+            find_end_of_brace(input_string);
+
+
+        }
+
+
+        //if,for, digital write 등  판별
+        private void find_type_of_block(String input_string){
+            int first_colon = input_string.indexOf("'");
+            Log.i("first colon : ",first_colon +"");
+
+            String sub_string = input_string.substring(first_colon+1);
+            int second_colon = sub_string.indexOf("'");
+            String block_type = input_string.substring(first_colon+1,first_colon+1+second_colon);
+            Log.i("type string : ",block_type);
+
+
+            int find_brace = input_string.indexOf("{");
+            sub_string = input_string.substring(find_brace);
+            find_end_of_brace(sub_string);
+        }
+
+        //[ 시작되고 ] 끝날때 까지 찾기
+        private void find_end_of_brace(String input_string){
+            char[] c_arr = input_string.toCharArray();
+            int open_brace = 0;
+            int close_brace = 0;
+            int one_circle_block = 0;
+            int start_sub_string = 0;
+            int[] start_brace;
+            int[] end_brace;
+
+
+            for(int i =0; i<c_arr.length; i++){
+                if(c_arr[i] == '['){
+                    if(open_brace == 0){
+                        start_sub_string = i;
+                    }
+                    if(open_brace != 0){ //블록안에 또 블록
+
+                    }
+
+                    open_brace++;
+                }
+                if(c_arr[i] == ']'){
+                    close_brace++;
+                }
+
+                if(open_brace == close_brace && open_brace != 0){
+                    one_circle_block = i;
+                    break;
+                }
             }
-//            Log.i(TAG, "find semicolon:\n" + find_dot);
+            String sub_string = input_string.substring(start_sub_string,one_circle_block+1);
+            sub_string = sub_string.replace("(","");
+            sub_string = sub_string.replace(")","");
+            sub_string = sub_string.replace("{","");
+            sub_string = sub_string.replace("}","");
+            sub_string = sub_string.replace("[","");
+            sub_string = sub_string.replace("]","");
+
+            block_contents_json_parsing(sub_string);
+
         }
 
-        //안에 다른 type의 시작 블록(if나 for같은)게 있을 때
-        private One_circle_code_bolcks if_other_type_of_blocks_inner_class(String input_string){
-            One_circle_code_bolcks return_class = new One_circle_code_bolcks();
+        private void block_contents_json_parsing(String input_string){
+            try {
+                String json_string = "[{" + input_string + "}]";
+                JSONArray jarray = new JSONArray(json_string);   // JSONArray 생성
+                for(int i=0; i < jarray.length(); i++) {
+                    JSONObject jObject = jarray.getJSONObject(i);  // JSONObject 추출
+                    String block_type = jObject.getString("block_type");
+                    Log.i("find type : ", block_type);
 
-            return return_class;
+                }
+
+
+            }catch (Exception e){
+                Log.e("json err", e.toString());
+            }
+
+
         }
+
+
 
     }
 
