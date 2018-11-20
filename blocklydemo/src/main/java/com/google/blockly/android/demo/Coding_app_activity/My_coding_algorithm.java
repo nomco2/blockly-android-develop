@@ -243,34 +243,45 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         }
 
 
-        private byte[] convert_json_to_byte(char[] c_arr){
-            byte[] return_byte;
-//            char[] c_arr = input_string.toCharArray();
+        private byte[] convert_json_to_byte(String input_string){
+            byte[] return_byte = {'a', 'b', 'c'};
+            byte[] c_arr = input_string.getBytes();
             int open_brace = 0;
             int close_brace = 0;
-            int[] start_brace = new int[100];
-            int[] end_brace = new int[100];
-            int close_brace_continually = 0;
 
 
 
             for(int i =0; i<c_arr.length; i++){
-                if(c_arr[i] == '['){
-                    open_brace++;
-                    start_brace[open_brace] = i;
-                    close_brace_continually = 0;
-                }
-                if(c_arr[i] == ']'){
-                    close_brace++;
-                    end_brace[close_brace] = i;
-                    close_brace_continually++;
-                }
-                if(open_brace == close_brace && open_brace != 0){
 
+
+                if(c_arr[i] == '[' && open_brace != 0){
+                    open_brace++;
+
+                    int inner_brace_count = 0;
+                    int start_brace = i;
+                    int end_brace = 0;
+
+                    byte[] temp_save_byte;
+
+                    for(int j = i; j<c_arr.length; j++){
+                        if(c_arr[j] ==']'){
+                            if(inner_brace_count == 0){
+                                temp_save_byte = convert_json_to_byte(input_string.substring(start_brace,j+1));
+                                return_byte = temp_save_byte;
+                            }
+                            inner_brace_count--;
+                            break;
+                        }else if(c_arr[j] =='['){
+                            inner_brace_count++;
+                        }
+
+                    }
                 }
+
 
 
             }
+            return return_byte;
         }
 
 
