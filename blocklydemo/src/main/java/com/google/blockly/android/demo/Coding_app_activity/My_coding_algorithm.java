@@ -243,6 +243,37 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         }
 
 
+        private byte[] convert_json_to_byte(char[] c_arr){
+            byte[] return_byte;
+//            char[] c_arr = input_string.toCharArray();
+            int open_brace = 0;
+            int close_brace = 0;
+            int[] start_brace = new int[100];
+            int[] end_brace = new int[100];
+            int close_brace_continually = 0;
+
+
+
+            for(int i =0; i<c_arr.length; i++){
+                if(c_arr[i] == '['){
+                    open_brace++;
+                    start_brace[open_brace] = i;
+                    close_brace_continually = 0;
+                }
+                if(c_arr[i] == ']'){
+                    close_brace++;
+                    end_brace[close_brace] = i;
+                    close_brace_continually++;
+                }
+                if(open_brace == close_brace && open_brace != 0){
+
+                }
+
+
+            }
+        }
+
+
         //if,for, digital write 등  판별
         private void find_type_of_block(String input_string){
             int first_colon = input_string.indexOf("'");
