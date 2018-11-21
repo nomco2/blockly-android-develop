@@ -33,6 +33,7 @@ import com.google.blockly.model.DefaultBlocks;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -231,9 +232,8 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //        var item;
 //
 //
-//    [{'block_type':'if','control_type':1,'value1':'({'equal':[{'item':''}]})', 'statement1':'  item = 0;
-//      item = (typeof item == 'number' ? item : 0) + item;
-//    '}][{'block_type':'if','control_type':1,'value1':'', 'statement1':''}]
+//    [@2:#7,([3:5,item:item]):  item = (typeof item == 'number' ? item : 0) + 0;
+//    ]
 
         private One_circle_code_bolcks(String input_string){
 
@@ -243,45 +243,48 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         }
 
 
-        private byte[] convert_json_to_byte(String input_string){
-            byte[] return_byte = {'a', 'b', 'c'};
-            byte[] c_arr = input_string.getBytes();
+        private byte[] convert_string_to_byte(String input_string) {
+            List<Object> return_byte_list = new ArrayList<Object>();
+            char[] c_arr = input_string.toCharArray();
             int open_brace = 0;
             int close_brace = 0;
 
+            //var 변수 처리
+            //
+
+            for (int i = 0; i < c_arr.length; i++) {
 
 
-            for(int i =0; i<c_arr.length; i++){
-
-
-                if(c_arr[i] == '[' && open_brace != 0){
-                    open_brace++;
-
-                    int inner_brace_count = 0;
-                    int start_brace = i;
-                    int end_brace = 0;
-
-                    byte[] temp_save_byte;
-
-                    for(int j = i; j<c_arr.length; j++){
-                        if(c_arr[j] ==']'){
-                            if(inner_brace_count == 0){
-                                temp_save_byte = convert_json_to_byte(input_string.substring(start_brace,j+1));
-                                return_byte = temp_save_byte;
-                            }
-                            inner_brace_count--;
-                            break;
-                        }else if(c_arr[j] =='['){
-                            inner_brace_count++;
-                        }
-
-                    }
+                if (c_arr[i] == '[') {
+                    convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]);
                 }
-
 
 
             }
             return return_byte;
+        }
+
+        private byte convert_char_to_byte_mode_select(char input_char1, char input_char2){
+            byte[] return_byte = new byte[2];
+            switch (input_char1){
+                case '0': return_byte[0] = 0x5B; break;
+                case '1': return_byte[0] = 0x5B; break;
+                case '2': return_byte[0] = 0x5B; break;
+                case '3': return_byte[0] = 0x5B; break;
+                case '4': return_byte[0] = 0x5B; break;
+                case '5': return_byte[0] = 0x5B; break;
+                case '6': return_byte[0] = 0x5B; break;
+            }
+
+            switch (input_char2){
+                case '0': return_byte[0] = 0x5B; break;
+                case '1': return_byte[0] = 0x5B; break;
+                case '2': return_byte[0] = 0x5B; break;
+                case '3': return_byte[0] = 0x5B; break;
+                case '4': return_byte[0] = 0x5B; break;
+                case '5': return_byte[0] = 0x5B; break;
+                case '6': return_byte[0] = 0x5B; break;
+            }
         }
 
 

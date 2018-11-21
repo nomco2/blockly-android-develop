@@ -83,7 +83,7 @@ Blockly.JavaScript['control_if_start'] = function(block) {
   var value_value_input_1 = Blockly.JavaScript.valueToCode(block, 'value_input_1', Blockly.JavaScript.ORDER_ATOMIC);
   var statements_statement_input_1 = Blockly.JavaScript.statementToCode(block, 'statement_input_1');
   // TODO: Assemble JavaScript into code variable.
-  var code = "[{'block_type':'if','control_type':1,'value1':'" + value_value_input_1 + "', 'statement1':'" + statements_statement_input_1 + "'}]";
+  var code = "[2:7,"+value_value_input_1+":"+statements_statement_input_1+"]";
   return code;
 };
 
@@ -91,8 +91,7 @@ Blockly.JavaScript['equal'] = function(block) {
   var value_value1 = Blockly.JavaScript.valueToCode(block, 'value1', Blockly.JavaScript.ORDER_ATOMIC);
   var value_value2 = Blockly.JavaScript.valueToCode(block, 'value2', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = "[{'block_type':'equal', 'control_type':1, 'value1':'" + value_value1 + "', 'value2':'"+ value_value2 + "'}]";
-
+  var code = "[3:5,"+value_value1+":"+value_value2+"]";
 // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
