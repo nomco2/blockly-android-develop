@@ -61,11 +61,12 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         super.onCreate(savedInstanceState);
         utils = new Utils(this);
         serverPref = new ServerPref(this);
-        try{
-            connect();
-        }catch (Exception e){
-            Toast.makeText(this, "not connecnt",Toast.LENGTH_SHORT).show();
-        }
+        connect();
+//        try{
+//            connect();
+//        }catch (Exception e){
+//            Toast.makeText(this, "not connecnt",Toast.LENGTH_SHORT).show();
+//        }
 
     }
 
@@ -237,54 +238,82 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
         private One_circle_code_bolcks(String input_string){
 
-            find_end_of_brace(input_string);
-
+//            find_end_of_brace(input_string);
+            convert_char_to_byte_mode_select('A','1');
 
         }
 
 
-        private byte[] convert_string_to_byte(String input_string) {
-            List<Object> return_byte_list = new ArrayList<Object>();
-            char[] c_arr = input_string.toCharArray();
-            int open_brace = 0;
-            int close_brace = 0;
-
-            //var 변수 처리
-            //
-
-            for (int i = 0; i < c_arr.length; i++) {
-
-
-                if (c_arr[i] == '[') {
-                    convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]);
-                }
-
-
-            }
-            return return_byte;
-        }
+//        private byte[] convert_string_to_byte(String input_string) {
+//            List<Object> return_byte_list = new ArrayList<Object>();
+//            char[] c_arr = input_string.toCharArray();
+//            int open_brace = 0;
+//            int close_brace = 0;
+//
+//            //var 변수 처리
+//            //
+//
+//            for (int i = 0; i < c_arr.length; i++) {
+//
+//
+//                if (c_arr[i] == '[') {
+//                    convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]);
+//                }
+//
+//
+//            }
+//            return ;
+//        }
 
         private byte convert_char_to_byte_mode_select(char input_char1, char input_char2){
-            byte[] return_byte = new byte[2];
-            switch (input_char1){
-                case '0': return_byte[0] = 0x5B; break;
-                case '1': return_byte[0] = 0x5B; break;
-                case '2': return_byte[0] = 0x5B; break;
-                case '3': return_byte[0] = 0x5B; break;
-                case '4': return_byte[0] = 0x5B; break;
-                case '5': return_byte[0] = 0x5B; break;
-                case '6': return_byte[0] = 0x5B; break;
-            }
+            byte return_byte;
 
-            switch (input_char2){
-                case '0': return_byte[0] = 0x5B; break;
-                case '1': return_byte[0] = 0x5B; break;
-                case '2': return_byte[0] = 0x5B; break;
-                case '3': return_byte[0] = 0x5B; break;
-                case '4': return_byte[0] = 0x5B; break;
-                case '5': return_byte[0] = 0x5B; break;
-                case '6': return_byte[0] = 0x5B; break;
+//            int temp1 = ((int) input_char1 - 48)&0xff;
+//            temp1 = temp1<<1;
+//            return_byte = (byte) temp1;
+//            Log.i("test1", String.format("%02x ", temp1&0xff));
+//            Log.i("test2", String.format("%02x ", return_byte));
+//
+//            int temp2 = ((int) input_char2 - 48)&0xff;
+//            temp2 = temp1|temp2;
+//            return_byte =  (byte) temp2;
+//            Log.i("test3", String.format("%02x ", return_byte));
+
+            int temp1 = char_to_byte(input_char1)&0xff;
+            temp1 = temp1<<4;
+            byte a = 00000001;
+            int temp2 = char_to_byte(input_char2)&0xff;
+            int sum_temp = temp1|temp2;
+            return_byte = (byte) sum_temp;
+            telnet.out.write(return_byte);
+            telnet.out.flush();
+
+
+
+            return return_byte;
+        }
+        private byte char_to_byte(char input_char){
+            byte return_byte = 0x00;
+            switch (input_char){
+                case '0': return_byte = 0x00; break;
+                case '1': return_byte = 0x01; break;
+                case '2': return_byte = 0x02; break;
+                case '3': return_byte = 0x03; break;
+                case '4': return_byte = 0x04; break;
+                case '5': return_byte = 0x05; break;
+                case '6': return_byte = 0x06; break;
+                case '7': return_byte = 0x07; break;
+                case '8': return_byte = 0x08; break;
+                case '9': return_byte = 0x09; break;
+                case 'A': return_byte = 0x0a; break;
+                case 'B': return_byte = 0x0b; break;
+                case 'C': return_byte = 0x0c; break;
+                case 'D': return_byte = 0x0d; break;
+                case 'E': return_byte = 0x0e; break;
+                case 'F': return_byte = 0x0f; break;
             }
+            return return_byte;
+
         }
 
 

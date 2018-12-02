@@ -83,7 +83,7 @@ Blockly.JavaScript['control_if_start'] = function(block) {
   var value_value_input_1 = Blockly.JavaScript.valueToCode(block, 'value_input_1', Blockly.JavaScript.ORDER_ATOMIC);
   var statements_statement_input_1 = Blockly.JavaScript.statementToCode(block, 'statement_input_1');
   // TODO: Assemble JavaScript into code variable.
-  var code = "[2:7,"+value_value_input_1+":"+statements_statement_input_1+"]";
+  var code = "[27"+value_value_input_1+":"+statements_statement_input_1+"]";
   return code;
 };
 
