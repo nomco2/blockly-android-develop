@@ -229,11 +229,14 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         private int block_count = 0;
         private String temp_block_string[];
 
+        //variable 처리를 위한 class arraylist
+        public ArrayList<Variable_save> variables = new ArrayList<Variable_save>();
 
-//        var item;
+
+//        var item, item2;
 //
 //
-//    [@2:#7,([3:5,item:item]):  item = (typeof item == 'number' ? item : 0) + 0;
+//    [2:7,([3:5,item:item2]):  item = (typeof item == 'number' ? item : 0) + 0;
 //    ]
 
         private One_circle_code_bolcks(String input_string){
@@ -244,54 +247,73 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         }
 
 
-//        private byte[] convert_string_to_byte(String input_string) {
-//            List<Object> return_byte_list = new ArrayList<Object>();
-//            char[] c_arr = input_string.toCharArray();
-//            int open_brace = 0;
-//            int close_brace = 0;
-//
-//            //var 변수 처리
-//            //
-//
-//            for (int i = 0; i < c_arr.length; i++) {
-//
-//
-//                if (c_arr[i] == '[') {
-//                    convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]);
-//                }
-//
-//
-//            }
-//            return ;
-//        }
+        private char[] convert_string_to_byte(String input_string) {
+            StringBuilder temp_save_bytes = new StringBuilder();
+            char[] c_arr = input_string.toCharArray();
+            int open_brace = 0;
+            int close_brace = 0;
+
+            //var 변수 처리
+            //
+
+            for (int i = 0; i < c_arr.length; i++) {
+
+
+                if (c_arr[i] == '[') {
+                    temp_save_bytes.append(0x00); //괄호 열기 바이트 추가
+                    byte type_mode = convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]);
+                    temp_save_bytes.append(type_mode); //모드 바이트로 변환
+
+
+                }else if(c_arr[i] == ']'){
+                    temp_save_bytes.append(0x01); //괄호 닫기 바이트 추가
+
+                }else if(c_arr[i] == 'v' && c_arr[i+1] == 'a' && c_arr[i+2] == 'r' && c_arr[i+3] == ' '){
+                    i += 4; // var item, item2; 이런식이니까 i+4 번째 부터 char 계산
+
+                    StringBuilder variable_name_is = new StringBuilder("");
+                    while(true){
+                        if(c_arr[i] == ','){
+                            //변수 추가
+                            Variable_save mVariable_save = new Variable_save(variable_name_is.toString(),"");
+                            variables.add(mVariable_save);
+                            variable_name_is = new StringBuilder(""); // 저장해놓고 비우기
+                            i += 2; // var item, item2; 이런식이니까 , 다음에 두칸 건너뛰기
+
+                        }else if(c_arr[i] != ';') {
+                            //변수 추가하고 끝내기
+                            Variable_save mVariable_save = new Variable_save(variable_name_is.toString(), "");
+                            variables.add(mVariable_save);
+                            break;
+                        }else {
+                            variable_name_is.append(c_arr[i++]);
+                        }
+                    }
+
+                }
+
+            }
+
+
+            String convert_strbuilder_to_string = temp_save_bytes.toString();
+            char[] return_char = convert_strbuilder_to_string.toCharArray();
+            return return_char;
+        }
 
         private byte convert_char_to_byte_mode_select(char input_char1, char input_char2){
             byte return_byte;
 
-//            int temp1 = ((int) input_char1 - 48)&0xff;
-//            temp1 = temp1<<1;
-//            return_byte = (byte) temp1;
-//            Log.i("test1", String.format("%02x ", temp1&0xff));
-//            Log.i("test2", String.format("%02x ", return_byte));
-//
-//            int temp2 = ((int) input_char2 - 48)&0xff;
-//            temp2 = temp1|temp2;
-//            return_byte =  (byte) temp2;
-//            Log.i("test3", String.format("%02x ", return_byte));
-
             int temp1 = char_to_byte(input_char1)&0xff;
             temp1 = temp1<<4;
-            byte a = 00000001;
             int temp2 = char_to_byte(input_char2)&0xff;
             int sum_temp = temp1|temp2;
             return_byte = (byte) sum_temp;
             telnet.out.write(return_byte);
             telnet.out.flush();
 
-
-
             return return_byte;
         }
+
         private byte char_to_byte(char input_char){
             byte return_byte = 0x00;
             switch (input_char){
@@ -316,86 +338,19 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
         }
 
-
-        //if,for, digital write 등  판별
-        private void find_type_of_block(String input_string){
-            int first_colon = input_string.indexOf("'");
-            Log.i("first colon : ",first_colon +"");
-
-            String sub_string = input_string.substring(first_colon+1);
-            int second_colon = sub_string.indexOf("'");
-            String block_type = input_string.substring(first_colon+1,first_colon+1+second_colon);
-            Log.i("type string : ",block_type);
+//        private byte input_data_processing_by_type_mode(byte type_mode, )
 
 
-            int find_brace = input_string.indexOf("{");
-            sub_string = input_string.substring(find_brace);
-            find_end_of_brace(sub_string);
-        }
 
-        //[ 시작되고 ] 끝날때 까지 찾기
-        private void find_end_of_brace(String input_string){
-            char[] c_arr = input_string.toCharArray();
-            int open_brace = 0;
-            int close_brace = 0;
-            int one_circle_block = 0;
-            int start_sub_string = 0;
-            int[] start_brace;
-            int[] end_brace;
-
-
-            for(int i =0; i<c_arr.length; i++){
-                if(c_arr[i] == '['){
-                    if(open_brace == 0){
-                        start_sub_string = i;
-                    }
-                    if(open_brace != 0){ //블록안에 또 블록
-
-                    }
-
-                    open_brace++;
-                }
-                if(c_arr[i] == ']'){
-                    close_brace++;
-                }
-
-                if(open_brace == close_brace && open_brace != 0){
-                    one_circle_block = i;
-                    break;
-                }
-            }
-            String sub_string = input_string.substring(start_sub_string,one_circle_block+1);
-            sub_string = sub_string.replace("(","");
-            sub_string = sub_string.replace(")","");
-            sub_string = sub_string.replace("{","");
-            sub_string = sub_string.replace("}","");
-            sub_string = sub_string.replace("[","");
-            sub_string = sub_string.replace("]","");
-
-            block_contents_json_parsing(sub_string);
-
-        }
-
-        private void block_contents_json_parsing(String input_string){
-            try {
-                String json_string = "[{" + input_string + "}]";
-                JSONArray jarray = new JSONArray(json_string);   // JSONArray 생성
-                for(int i=0; i < jarray.length(); i++) {
-                    JSONObject jObject = jarray.getJSONObject(i);  // JSONObject 추출
-                    String block_type = jObject.getString("block_type");
-                    Log.i("find type : ", block_type);
-
-                }
-
-
-            }catch (Exception e){
-                Log.e("json err", e.toString());
+        class Variable_save{
+            public String variable_name;
+            public String variable_value;
+            private Variable_save(String name, String value){
+                variable_name = name;
+                variable_value = value;
             }
 
-
         }
-
-
 
     }
 
