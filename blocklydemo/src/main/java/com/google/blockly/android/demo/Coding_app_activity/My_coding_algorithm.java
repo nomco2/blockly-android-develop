@@ -236,7 +236,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //        var item, item2;
 //
 //
-//    [2:7,([3:5,item:item2]):  item = (typeof item == 'number' ? item : 0) + 0;
+//    [27,([35,item:item2]):  item = (typeof item == 'number' ? item : 0) + 0;
 //    ]
 
         private One_circle_code_bolcks(String input_string){
@@ -248,7 +248,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
 
         private char[] convert_string_to_byte(String input_string) {
-            StringBuilder temp_save_bytes = new StringBuilder();
+            StringBuilder temp_save_bytes = new StringBuilder(); //변환된 바이트 모으는 저장소
             char[] c_arr = input_string.toCharArray();
             int open_brace = 0;
             int close_brace = 0;
@@ -256,39 +256,51 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
             //var 변수 처리
             //
 
+            String temp_data = "";
             for (int i = 0; i < c_arr.length; i++) {
 
 
                 if (c_arr[i] == '[') {
                     temp_save_bytes.append(0x00); //괄호 열기 바이트 추가
-                    byte type_mode = convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]);
-                    temp_save_bytes.append(type_mode); //모드 바이트로 변환
+                    byte type_mode = convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]); //모드 바이트로 변환하기
+                    temp_save_bytes.append(type_mode); //모드 바이트 추가
+
 
 
                 }else if(c_arr[i] == ']'){
                     temp_save_bytes.append(0x01); //괄호 닫기 바이트 추가
 
-                }else if(c_arr[i] == 'v' && c_arr[i+1] == 'a' && c_arr[i+2] == 'r' && c_arr[i+3] == ' '){
+
+
+                }else if(c_arr[i] == ':'){
+                    temp_save_bytes.append(0x02); // 중간 구분자
+
+
+
+
+                }else if(c_arr[i] == 'v' && c_arr[i+1] == 'a' && c_arr[i+2] == 'r' && c_arr[i+3] == ' ') {
                     i += 4; // var item, item2; 이런식이니까 i+4 번째 부터 char 계산
 
                     StringBuilder variable_name_is = new StringBuilder("");
-                    while(true){
-                        if(c_arr[i] == ','){
+                    while (true) {
+                        if (c_arr[i] == ',') {
                             //변수 추가
-                            Variable_save mVariable_save = new Variable_save(variable_name_is.toString(),"");
+                            Variable_save mVariable_save = new Variable_save(variable_name_is.toString(), "");
                             variables.add(mVariable_save);
                             variable_name_is = new StringBuilder(""); // 저장해놓고 비우기
                             i += 2; // var item, item2; 이런식이니까 , 다음에 두칸 건너뛰기
 
-                        }else if(c_arr[i] != ';') {
+                        } else if (c_arr[i] != ';') {
                             //변수 추가하고 끝내기
                             Variable_save mVariable_save = new Variable_save(variable_name_is.toString(), "");
                             variables.add(mVariable_save);
                             break;
-                        }else {
+                        } else {
                             variable_name_is.append(c_arr[i++]);
                         }
                     }
+
+                }else if(c_arr[i] != ',' && c_arr[i] != '('  && c_arr[i] != ')'  && c_arr[i] != '('){
 
                 }
 
@@ -345,9 +357,11 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         class Variable_save{
             public String variable_name;
             public String variable_value;
+            public int variable_type_is = 0;
             private Variable_save(String name, String value){
                 variable_name = name;
                 variable_value = value;
+
             }
 
         }
