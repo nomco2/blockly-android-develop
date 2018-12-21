@@ -91,7 +91,7 @@ Blockly.JavaScript['equal'] = function(block) {
   var value_value1 = Blockly.JavaScript.valueToCode(block, 'value1', Blockly.JavaScript.ORDER_ATOMIC);
   var value_value2 = Blockly.JavaScript.valueToCode(block, 'value2', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
-  var code = "[3:5,"+value_value1+":"+value_value2+"]";
+  var code = "[35,"+value_value1+":"+value_value2+"]";
 // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };

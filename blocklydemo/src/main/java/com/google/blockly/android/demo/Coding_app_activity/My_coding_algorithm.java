@@ -152,7 +152,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         return BLOCK_DEFINITIONS;
     }
 
-    //언어별 설정을 위하여 DefaultBlocks.java에 있던 VARIABLE_BLOCKS_PATH String을 빼고 여기서 따로 추가해줌
+    //언어별 설정을 위하여 DefaultBlocks.java에 있던 VARIABLE_BLOCKS_PATH String을 빼고 여기서 따로 추가해줌 -> 나중에 unmodified 방식으로 넣어야 될듯
     private String set_locale_language(){
 
         Locale systemLocale = getApplicationContext().getResources().getConfiguration().locale;
@@ -303,6 +303,8 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 }else if(c_arr[i] != ',' && c_arr[i] != '('  && c_arr[i] != ')'  && c_arr[i] != '('){
 
                 }
+                //@@ 기능 코드 변환 예=35 이후 item으로 변수 이름인지 아니면 그냥 디지털 라이트 인지 구분이 필요함
+                // 아니면 variable을 건드릴 수 있으면 건드려서 바꿔야 될듯 -> 변수면 v_변수 이름 넣도록 해서 구분하기
 
             }
 
