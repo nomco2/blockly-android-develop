@@ -18,7 +18,8 @@ public class Starting_Logo extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.starting_logo);
         Handler hd = new Handler();
-        hd.postDelayed(new splashhandler(), 1500);
+        hd.postDelayed(new splashhandler(), 5000);
+
 
     }
 

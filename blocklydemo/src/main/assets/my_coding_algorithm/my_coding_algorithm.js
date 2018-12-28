@@ -88,6 +88,7 @@ Blockly.JavaScript['control_if_start'] = function(block) {
 };
 
 Blockly.JavaScript['equal'] = function(block) {
+  Blockly.Variables.createVariable(button.getTargetWorkspace(), null, 'panda');
   var value_value1 = Blockly.JavaScript.valueToCode(block, 'value1', Blockly.JavaScript.ORDER_ATOMIC);
   var value_value2 = Blockly.JavaScript.valueToCode(block, 'value2', Blockly.JavaScript.ORDER_ATOMIC);
   // TODO: Assemble JavaScript into code variable.
