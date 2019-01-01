@@ -238,6 +238,9 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //
 //    [27,([35,item:item2]):  item = (typeof item == 'number' ? item : 0) + 0;
 //    ]
+        /*
+        change variable => [variable_change_number,@^item:@^item]
+         */
 
         private One_circle_code_bolcks(String input_string){
 
