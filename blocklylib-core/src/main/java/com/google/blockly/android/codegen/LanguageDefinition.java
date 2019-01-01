@@ -11,7 +11,7 @@ public class LanguageDefinition {
      * Standard definition for the JavaScript language generator.
      */
     public final static LanguageDefinition JAVASCRIPT_LANGUAGE_DEFINITION
-            = new LanguageDefinition("javascript_compressed.js", "Blockly.JavaScript");
+            = new LanguageDefinition("javascript_compressed_my_custom.js", "Blockly.JavaScript");
 
     /**
      * The path to the language generation file relative to
