@@ -25,6 +25,7 @@ import android.widget.Toast;
 import com.google.blockly.android.AbstractBlocklyActivity;
 import com.google.blockly.android.codegen.CodeGenerationRequest;
 
+import com.google.blockly.android.codegen.LoggingCodeGeneratorCallback;
 import com.google.blockly.android.demo.Coding_app_activity.demo.ServerPref;
 import com.google.blockly.android.demo.Coding_app_activity.demo.TelnetServer;
 import com.google.blockly.android.demo.Coding_app_activity.demo.Utils;
@@ -111,36 +112,52 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
     private final Handler mHandler = new Handler();
     private final CodeGenerationRequest.CodeGeneratorCallback mCodeGeneratorCallback =
-            new CodeGenerationRequest.CodeGeneratorCallback() {
+            new LoggingCodeGeneratorCallback(this, TAG) {
                 @Override
-                public void onFinishCodeGeneration(final String generatedCode) {
-                    // Sample callback.
-                    Log.i(TAG, "generatedCode:\n" + generatedCode);
+                public void onFinishCodeGeneration(String generatedCode) {
+//                    One_circle_code_bolcks mOne_circle_code_bolcks = new One_circle_code_bolcks(generatedCode);
                     Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_SHORT).show();
 
-                    One_circle_code_bolcks mOne_circle_code_bolcks = new One_circle_code_bolcks(generatedCode);
-
-
-
-
-                    mHandler.post(new Runnable() {
-                        @Override
-                        public void run() {
-//                            String encoded = "Turtle.execute("
-//                                    + JavascriptUtil.makeJsString(generatedCode) + ")";
-//                            mTurtleWebview.loadUrl("javascript:" + encoded);
-//                            Toast.makeText(getApplicationContext(),generatedCode.toString(), Toast.LENGTH_LONG).show();
-
-                            //텔넷 데이터 보내기
-//                            Toast.makeText(getApplicationContext(), generatedCode.toString(), Toast.LENGTH_LONG).show();
-
-//                            NetworkThread thread = new NetworkThread(generatedCode.toString());
-//                            thread.start();
-//                            thread.interrupt();
-                        }
-                    });
+//                    NetworkThread thread = new NetworkThread(generatedCode.toString());
+//                    thread.start();
+//                    thread.interrupt();
                 }
+
+
             };
+
+//            new CodeGenerationRequest.CodeGeneratorCallback() {
+//                @Override
+//                public void onFinishCodeGeneration(String generatedCode) {
+//                    // Sample callback.
+//                    if(generatedCode != "") {
+//                        Log.i(TAG, "generatedCode:\n" + generatedCode);
+//                        Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_SHORT).show();
+//
+//                        One_circle_code_bolcks mOne_circle_code_bolcks = new One_circle_code_bolcks(generatedCode);
+//
+//                    }
+//
+//
+//
+//                    mHandler.post(new Runnable() {
+//                        @Override
+//                        public void run() {
+////                            String encoded = "Turtle.execute("
+////                                    + JavascriptUtil.makeJsString(generatedCode) + ")";
+////                            mTurtleWebview.loadUrl("javascript:" + encoded);
+////                            Toast.makeText(getApplicationContext(),generatedCode.toString(), Toast.LENGTH_LONG).show();
+//
+//                            //텔넷 데이터 보내기
+////                            Toast.makeText(getApplicationContext(), generatedCode.toString(), Toast.LENGTH_LONG).show();
+//
+////                            NetworkThread thread = new NetworkThread(generatedCode.toString());
+////                            thread.start();
+////                            thread.interrupt();
+//                        }
+//                    });
+//                }
+//            };
 
 
 
@@ -223,7 +240,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
     class One_circle_code_bolcks{
         public String input_string;
         public int type_of_block; // if 1~3, for 4~6 등등 정해야 될 듯
-        private byte[] send_byte;
+        private char[] send_byte;
 
         //재귀함수 호출을 위한 [{}] json 덩어리 String 나누기
         private int block_count = 0;
@@ -245,6 +262,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         private One_circle_code_bolcks(String input_string){
 
 //            find_end_of_brace(input_string);
+            send_byte = convert_string_to_byte(input_string);
             convert_char_to_byte_mode_select('A','1');
 
         }
@@ -253,13 +271,9 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         private char[] convert_string_to_byte(String input_string) {
             StringBuilder temp_save_bytes = new StringBuilder(); //변환된 바이트 모으는 저장소
             char[] c_arr = input_string.toCharArray();
-            int open_brace = 0;
-            int close_brace = 0;
 
-            //var 변수 처리
-            //
 
-            String temp_data = "";
+
             for (int i = 0; i < c_arr.length; i++) {
 
 
@@ -281,8 +295,8 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
 
 
-                }else if(c_arr[i] == 'v' && c_arr[i+1] == 'a' && c_arr[i+2] == 'r' && c_arr[i+3] == ' ') {
-                    i += 4; // var item, item2; 이런식이니까 i+4 번째 부터 char 계산
+                }else if(c_arr[i] == '@' && c_arr[i+1] == '@' && c_arr[i+2] == '!') {
+                    i += 3; // var@@!item,item2; 이런식으로 선언 됨
 
                     StringBuilder variable_name_is = new StringBuilder("");
                     while (true) {
@@ -291,7 +305,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                             Variable_save mVariable_save = new Variable_save(variable_name_is.toString(), "");
                             variables.add(mVariable_save);
                             variable_name_is = new StringBuilder(""); // 저장해놓고 비우기
-                            i += 2; // var item, item2; 이런식이니까 , 다음에 두칸 건너뛰기
+                            i += 1; // var@@!item,item2; 이런식이니까 , 다음에 한칸 건너뛰기
 
                         } else if (c_arr[i] != ';') {
                             //변수 추가하고 끝내기
@@ -302,8 +316,6 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                             variable_name_is.append(c_arr[i++]);
                         }
                     }
-
-                }else if(c_arr[i] != ',' && c_arr[i] != '('  && c_arr[i] != ')'  && c_arr[i] != '('){
 
                 }
                 //@@ 기능 코드 변환 예=35 이후 item으로 변수 이름인지 아니면 그냥 디지털 라이트 인지 구분이 필요함
