@@ -115,7 +115,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
             new LoggingCodeGeneratorCallback(this, TAG) {
                 @Override
                 public void onFinishCodeGeneration(String generatedCode) {
-//                    One_circle_code_bolcks mOne_circle_code_bolcks = new One_circle_code_bolcks(generatedCode);
+                    One_circle_code_bolcks mOne_circle_code_bolcks = new One_circle_code_bolcks(generatedCode);
                     Toast.makeText(getApplicationContext(), generatedCode, Toast.LENGTH_SHORT).show();
 
 //                    NetworkThread thread = new NetworkThread(generatedCode.toString());
@@ -307,14 +307,17 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                             variable_name_is = new StringBuilder(""); // 저장해놓고 비우기
                             i += 1; // var@@!item,item2; 이런식이니까 , 다음에 한칸 건너뛰기
 
-                        } else if (c_arr[i] != ';') {
+                        } else if (c_arr[i] == ';') {
                             //변수 추가하고 끝내기
                             Variable_save mVariable_save = new Variable_save(variable_name_is.toString(), "");
                             variables.add(mVariable_save);
                             break;
+
+
                         } else {
                             variable_name_is.append(c_arr[i++]);
                         }
+                        Log.i("end", "end");
                     }
 
                 }
