@@ -317,13 +317,30 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                         } else {
                             variable_name_is.append(c_arr[i++]);
                         }
-                        Log.i("end", "end");
                     }
+                    Log.i("variable list", variables.toString());
 
+
+
+
+
+                }else if(c_arr[i] == '@' && c_arr[i+1] == '^'){//변수 중간에 찾아서 변수 순서대로 바이트로 바꾸기
+                    StringBuilder variable_name_is = new StringBuilder("");
+                    while (true) {
+                        if (c_arr[i] == ':' || c_arr[i] == ']' ) { //변수가 끝나는 지점을 찾음
+                            //변수 찾아서 바이트 가져오기
+        /*
+        change variable => [variable_change_number,@^item:@^item]
+         */
+                            Variable_save mVariable_load = variables.get(variables.indexOf(variable_name_is.toString()));
+                            temp_save_bytes.append(mVariable_load.convert_byte);
+
+
+                        } else {
+                            variable_name_is.append(c_arr[i++]);
+                        }
+                    }
                 }
-                //@@ 기능 코드 변환 예=35 이후 item으로 변수 이름인지 아니면 그냥 디지털 라이트 인지 구분이 필요함
-                // 아니면 variable을 건드릴 수 있으면 건드려서 바꿔야 될듯 -> 변수면 v_변수 이름 넣도록 해서 구분하기
-
             }
 
 
@@ -373,14 +390,26 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //        private byte input_data_processing_by_type_mode(byte type_mode, )
 
 
-
+//변수 저장 형식 클래스 -> 인트 저장과 스트링 저장을 구분할 필요가 있음
         class Variable_save{
             public String variable_name;
             public String variable_value;
-            public int variable_type_is = 0;
+            public int variable_int = 0;
+            private boolean int_or_string;
+            public byte convert_byte;
             private Variable_save(String name, String value){
                 variable_name = name;
                 variable_value = value;
+
+                try{ // 숫자로 변환되면 인트형식이라 인식 아니면 그냥 스트링 형식
+                    variable_int = Integer.parseInt(value);
+                    int_or_string = true;
+                    //@@ 인트형 저장소의 순서에 맞춰서 바이트로 변환
+                }catch (Exception e){
+                    int_or_string = false;
+                    //@@ 스트링형 저장소의 순서에 맞춰서 바이트로 변환
+                }
+
 
             }
 
