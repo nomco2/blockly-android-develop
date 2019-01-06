@@ -387,7 +387,34 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
         }
 
-//        private byte input_data_processing_by_type_mode(byte type_mode, )
+        private byte variable_byte_determiner(ArrayList<Variable_save> varaible_arrayList, Variable_save you_want_save_variable){
+            byte int_min_num = 0x60;
+            byte int_max_num = 0x6f;
+            byte str_min_num = 0x70;
+            byte str_max_num = 0x7f;
+            int int_variable;
+            String string_variable;
+
+
+            try {
+                int_variable = Integer.parseInt(you_want_save_variable.variable_value);
+                byte return_byte = int_min_num;
+                for(int j=0; j<16; j++) {
+                    return_byte
+                    for (int i = 0; i < 16; i++) {
+                        if (!(varaible_arrayList.get(i).convert_byte == int_min_num + j)) {
+                            return int_min_num + ;
+
+                        }
+
+                    }
+                }
+
+            }catch (Exception e){
+                string_variable = you_want_save_variable.variable_value;
+            }
+
+        }
 
 
 //변수 저장 형식 클래스 -> 인트 저장과 스트링 저장을 구분할 필요가 있음
