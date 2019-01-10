@@ -376,7 +376,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 case '7': return_byte = 0x07; break;
                 case '8': return_byte = 0x08; break;
                 case '9': return_byte = 0x09; break;
-                case 'A': return_byte = 0x0a; break;
+                case 'A': return_byte = 0x0a; break;q
                 case 'B': return_byte = 0x0b; break;
                 case 'C': return_byte = 0x0c; break;
                 case 'D': return_byte = 0x0d; break;
@@ -400,7 +400,6 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 int_variable = Integer.parseInt(you_want_save_variable.variable_value);
                 byte return_byte = int_min_num;
                 for(int j=0; j<16; j++) {
-                    return_byte
                     for (int i = 0; i < 16; i++) {
                         if (!(varaible_arrayList.get(i).convert_byte == int_min_num + j)) {
                             return int_min_num + ;
