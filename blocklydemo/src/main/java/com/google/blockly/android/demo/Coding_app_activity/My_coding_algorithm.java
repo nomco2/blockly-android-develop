@@ -247,7 +247,10 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         private String temp_block_string[];
 
         //variable 처리를 위한 class arraylist
-        public ArrayList<Variable_save> variables = new ArrayList<Variable_save>();
+        public ArrayList<Variable_save> variables;
+        int int_variable_count =96; // 0x60 hex = 96
+        int string_variable_count =112; //0x70 hex = 112
+
 
 
 //        var item, item2;
@@ -260,8 +263,8 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
          */
 
         private One_circle_code_bolcks(String input_string){
+            variables = new ArrayList<Variable_save>();
 
-//            find_end_of_brace(input_string);
             send_byte = convert_string_to_byte(input_string);
             convert_char_to_byte_mode_select('A','1');
 
@@ -277,7 +280,9 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
             for (int i = 0; i < c_arr.length; i++) {
 
 
-                if (c_arr[i] == '[') {
+
+                /* 시작과 끝 처리하는 부분 */
+                if (c_arr[i] == '[' ) {
                     temp_save_bytes.append(0x00); //괄호 열기 바이트 추가
                     byte type_mode = convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]); //모드 바이트로 변환하기
                     temp_save_bytes.append(type_mode); //모드 바이트 추가
@@ -289,12 +294,19 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
 
 
-                }else if(c_arr[i] == ':'){
+                }else if(c_arr[i] == ':') {
                     temp_save_bytes.append(0x02); // 중간 구분자
 
 
+                }else if(c_arr[i] == ',' && c_arr[i+1] != '@'){ //디지털 신호 등 기능 들 이면
+                    byte type_mode = convert_char_to_byte_mode_select(c_arr[++i],c_arr[++i]); //모드 바이트로 변환하기
+                    temp_save_bytes.append(type_mode); //모드 바이트 추가
 
 
+
+
+
+                    /*변수 관련 처리 부분  */
                 }else if(c_arr[i] == '@' && c_arr[i+1] == '@' && c_arr[i+2] == '!') {
                     i += 3; // var@@!item,item2; 이런식으로 선언 됨
 
@@ -332,9 +344,17 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         /*
         change variable => [variable_change_number,@^item:@^item]
          */
-                            Variable_save mVariable_load = variables.get(variables.indexOf(variable_name_is.toString()));
-                            temp_save_bytes.append(mVariable_load.convert_byte);
 
+
+        //@@ 테스트 필요함 값을 제대로 찾는지
+                            for(int j=0;j<16; j++){
+                                Variable_save mVariable_load = variables.get(j);
+                                if(mVariable_load.variable_name == variable_name_is.toString()){
+                                    temp_save_bytes.append(mVariable_load.variable_address);
+                                    break;
+                                }
+                            }
+                            break;
 
                         } else {
                             variable_name_is.append(c_arr[i++]);
@@ -376,7 +396,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 case '7': return_byte = 0x07; break;
                 case '8': return_byte = 0x08; break;
                 case '9': return_byte = 0x09; break;
-                case 'A': return_byte = 0x0a; break;q
+                case 'A': return_byte = 0x0a; break;
                 case 'B': return_byte = 0x0b; break;
                 case 'C': return_byte = 0x0c; break;
                 case 'D': return_byte = 0x0d; break;
@@ -387,33 +407,10 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
         }
 
-        private byte variable_byte_determiner(ArrayList<Variable_save> varaible_arrayList, Variable_save you_want_save_variable){
-            byte int_min_num = 0x60;
-            byte int_max_num = 0x6f;
-            byte str_min_num = 0x70;
-            byte str_max_num = 0x7f;
-            int int_variable;
-            String string_variable;
 
 
-            try {
-                int_variable = Integer.parseInt(you_want_save_variable.variable_value);
-                byte return_byte = int_min_num;
-                for(int j=0; j<16; j++) {
-                    for (int i = 0; i < 16; i++) {
-                        if (!(varaible_arrayList.get(i).convert_byte == int_min_num + j)) {
-                            return int_min_num + ;
 
-                        }
 
-                    }
-                }
-
-            }catch (Exception e){
-                string_variable = you_want_save_variable.variable_value;
-            }
-
-        }
 
 
 //변수 저장 형식 클래스 -> 인트 저장과 스트링 저장을 구분할 필요가 있음
@@ -422,7 +419,9 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
             public String variable_value;
             public int variable_int = 0;
             private boolean int_or_string;
-            public byte convert_byte;
+            public byte variable_address;
+
+
             private Variable_save(String name, String value){
                 variable_name = name;
                 variable_value = value;
@@ -430,12 +429,22 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 try{ // 숫자로 변환되면 인트형식이라 인식 아니면 그냥 스트링 형식
                     variable_int = Integer.parseInt(value);
                     int_or_string = true;
-                    //@@ 인트형 저장소의 순서에 맞춰서 바이트로 변환
                 }catch (Exception e){
                     int_or_string = false;
                     //@@ 스트링형 저장소의 순서에 맞춰서 바이트로 변환
                 }
+                address_determiner();//주소 정해 주기
 
+
+            }
+
+            private byte address_determiner(){
+                //@@ 바이트가 제대로 들어가는지 확인해봐야 될듯
+                if(int_or_string){
+                    variable_address = (byte) int_variable_count++;
+                }else{
+                    variable_address = (byte) string_variable_count++;
+                }
 
             }
 
