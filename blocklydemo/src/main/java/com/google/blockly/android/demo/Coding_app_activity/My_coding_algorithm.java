@@ -277,7 +277,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
 
 
-            for (int i = 0; i < c_arr.length; i++) {
+            for (int i = 0; i < c_arr.length+10; i++) {
 
 
 
@@ -330,7 +330,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                             variable_name_is.append(c_arr[i++]);
                         }
                     }
-                    Log.i("variable list", variables.toString());
+                    Log.i("variable list@@", variables.toString());
 
 
 
@@ -438,7 +438,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
             }
 
-            private byte address_determiner(){
+            private void address_determiner(){
                 //@@ 바이트가 제대로 들어가는지 확인해봐야 될듯
                 if(int_or_string){
                     variable_address = (byte) int_variable_count++;
