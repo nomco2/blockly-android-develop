@@ -266,7 +266,9 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
             variables = new ArrayList<Variable_save>();
 
             send_byte = convert_string_to_byte(input_string);
-            convert_char_to_byte_mode_select('A','1');
+            telnet.out.println("ABS");
+            telnet.out.flush();
+//            convert_char_to_byte_mode_select('A','1');
 
         }
 
