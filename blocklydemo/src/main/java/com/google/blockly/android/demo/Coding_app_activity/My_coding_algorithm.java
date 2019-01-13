@@ -338,28 +338,28 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
                 }else if(c_arr[i] == '@' && c_arr[i+1] == '^'){//변수 중간에 찾아서 변수 순서대로 바이트로 바꾸기
                     StringBuilder variable_name_is = new StringBuilder("");
-                    while (true) {
-                        if (c_arr[i] == ':' || c_arr[i] == ']' ) { //변수가 끝나는 지점을 찾음
-                            //변수 찾아서 바이트 가져오기
-        /*
-        change variable => [variable_change_number,@^item:@^item]
-         */
-
-
-        //@@ 테스트 필요함 값을 제대로 찾는지
-                            for(int j=0;j<16; j++){
-                                Variable_save mVariable_load = variables.get(j);
-                                if(mVariable_load.variable_name == variable_name_is.toString()){
-                                    temp_save_bytes.append(mVariable_load.variable_address);
-                                    break;
-                                }
-                            }
-                            break;
-
-                        } else {
-                            variable_name_is.append(c_arr[i++]);
-                        }
-                    }
+//                    while (true) {
+//                        if (c_arr[i] == ':' || c_arr[i] == ']' ) { //변수가 끝나는 지점을 찾음
+//                            //변수 찾아서 바이트 가져오기
+//        /*
+//        change variable => [variable_change_number,@^item:@^item]
+//         */
+//
+//
+//        //@@ 테스트 필요함 값을 제대로 찾는지
+//                            for(int j=0;j<16; j++){
+//                                Variable_save mVariable_load = variables.get(j);
+//                                if(mVariable_load.variable_name == variable_name_is.toString()){
+//                                    temp_save_bytes.append(mVariable_load.variable_address);
+//                                    break;
+//                                }
+//                            }
+////                            break;
+//
+//                        } else {
+//                            variable_name_is.append(c_arr[i++]);
+//                        }
+//                    }
                 }
             }
 
