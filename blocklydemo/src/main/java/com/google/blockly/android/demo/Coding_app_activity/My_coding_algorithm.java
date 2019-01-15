@@ -253,11 +253,6 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
 
 
-//        var item, item2;
-//
-//
-//    [27,([35,item:item2]):  item = (typeof item == 'number' ? item : 0) + 0;
-//    ]
         /*
         change variable => [variable_change_number,@^item:@^item]
          */
@@ -265,11 +260,14 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
         private One_circle_code_bolcks(String input_string){
             variables = new ArrayList<Variable_save>();
 
-            send_byte = convert_string_to_byte(input_string);
-            telnet.out.println("ABS");
-            telnet.out.flush();
+            try {
+                send_byte = convert_string_to_byte(input_string);
+                telnet.out.println("ABS");
+                telnet.out.flush();
 //            convert_char_to_byte_mode_select('A','1');
-
+            }catch (Exception e){
+                Log.e("error@", e.toString());
+            }
         }
 
 
