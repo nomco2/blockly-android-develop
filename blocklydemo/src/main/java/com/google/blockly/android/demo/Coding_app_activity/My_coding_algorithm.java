@@ -254,7 +254,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
 
         /*
-        change variable => [variable_change_number,@^item:@^item]
+        change variable => [variable_change_number,\titem:\titem]
          */
 
         private One_circle_code_bolcks(String input_string){
@@ -262,11 +262,12 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 
             try {
                 send_byte = convert_string_to_byte(input_string);
-                telnet.out.println("ABS");
+//                telnet.out.println("ABS");
+                telnet.out.println(send_byte);
                 telnet.out.flush();
 //            convert_char_to_byte_mode_select('A','1');
             }catch (Exception e){
-                Log.e("error@", e.toString());
+                Log.e("error@@1", e.toString());
             }
         }
 
@@ -339,14 +340,14 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                     Log.i("i is", i +"");
 
 
-                }else if(c_arr[i] == '@' && c_arr[i+1] == '^'){//변수 중간에 찾아서 변수 순서대로 바이트로 바꾸기
+                }else if(c_arr[i] == '\t'){//변수 중간에 찾아서 변수 순서대로 바이트로 바꾸기
                     StringBuilder variable_name_is = new StringBuilder("");
                     while (true) {
 
                         if (c_arr[i] == ':' || c_arr[i] == ']' ) { //변수가 끝나는 지점을 찾음
                             //변수 찾아서 바이트 가져오기
         /*
-        change variable => [variable_change_number,@^item:@^item]
+        change variable => [variable_change_number,\titem:\titem]
          */
 
 
@@ -360,7 +361,7 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                                     break;
                                 }
                                 }catch (Exception e){
-                                    Log.e("err is", e.toString());
+                                    Log.e("error@@2", e.toString());
                                 }
                             }
 //                            break;
@@ -442,6 +443,8 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
                 }catch (Exception e){
                     int_or_string = false;
                     //@@ 스트링형 저장소의 순서에 맞춰서 바이트로 변환
+                    Log.e("error@@3", e.toString());
+
                 }
                 address_determiner();//주소 정해 주기
 
