@@ -29,13 +29,16 @@ import com.google.blockly.android.codegen.LoggingCodeGeneratorCallback;
 import com.google.blockly.android.demo.Coding_app_activity.demo.ServerPref;
 import com.google.blockly.android.demo.Coding_app_activity.demo.TelnetServer;
 import com.google.blockly.android.demo.Coding_app_activity.demo.Utils;
+import com.google.blockly.android.demo.R;
 import com.google.blockly.model.DefaultBlocks;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
@@ -68,8 +71,29 @@ public class My_coding_algorithm extends AbstractBlocklyActivity {
 //        }catch (Exception e){
 //            Toast.makeText(this, "not connecnt",Toast.LENGTH_SHORT).show();
 //        }
+        String Json = "[{\"Product\" : {\"nested_object1\":\"test1\"}, \"Maker\":\"Samsung\", \"Price\":23000},"
+                + "{\"Product\" : [{\"nested_array1\":\"test2\"}], \"Maker\":\"LG\", \"Price\":12000},"
+                + "{\"Product\":\"HDD\", \"Maker\":\"Western Digital\", \"Price\":156000}]";
 
-    }
+
+        try{
+            String result = "";
+            JSONArray ja = new JSONArray(Json);
+            for (int i = 0; i < ja.length(); i++){
+                JSONObject order = ja.getJSONObject(i);
+                result += "product: " + order.getString("Product") + ", maker: " + order.getString("Maker") +
+                        ", price: " + order.getInt("Price") + "\n";
+                Log.i("result:", result);
+            }
+        }
+        catch (JSONException e){ ;}
+
+
+
+
+    }//oncreate 끝
+
+
 
 
     //telnet 관련 메소드

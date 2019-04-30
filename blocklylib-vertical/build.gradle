@@ -34,7 +34,11 @@ dependencies {
     //                                      ^
     //       symbol:   class AbstractBlocklyActivity
     //       location: package com.google.blockly.android
-    compile project(':blocklylib-core')
+//    compile project(':blocklylib-core')
+    api project(':blocklylib-core')
+
+
+
 }
 
 task sourcesJar(type: Jar) {

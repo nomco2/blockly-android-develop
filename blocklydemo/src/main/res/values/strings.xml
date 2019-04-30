@@ -39,4 +39,5 @@
     <string name="action_demo_android">Android</string>
     <string name="action_demo_lacey_curves">Lacey Curves</string>
     <string name="action_demo_paint_strokes">Paint Strokes</string>
+    <string name="test_json">{"food_list":[{"code":"F3J01","seq_code":102,"food_name":"32도　숙성　양조진간장","thumb_img":"http://api.eatsight.com/FoodData/client_thumb/F3J01102_TOP.jpg","sell_com":"씨제이제일제당(주)","barcode":"8801007081496","volume":"940 ml","food_type":"양조간장","ing_first":""},{"code":"F3J01","seq_code":19,"food_name":"32도숙성　양조간장","thumb_img":"http://api.eatsight.com/FoodData/client_thumb/F3J0119_TOP.jpg","sell_com":"씨제이제일제당(주)","barcode":"8801007081441","volume":"1.6L","food_type":"양조간장","ing_first":""}</string>
 </resources>
