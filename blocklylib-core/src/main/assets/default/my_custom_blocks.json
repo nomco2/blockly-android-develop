@@ -45,6 +45,203 @@
     "colour": 225,
     "tooltip": "",
     "helpUrl": ""
+  },
+  {
+    "type": "coding_for",
+    "message0": "반복하기 %1 회 %2 %3",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "v1_numberic",
+        "value": 0,
+        "min": 0
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "v2_statement"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 30,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "coding_if",
+    "message0": "만약 %1 %2 %3 %4 %5",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "v1_value"
+      },
+      {
+        "type": "field_dropdown",
+        "name": "v2_dropdown",
+        "options": [
+          [
+            " = ",
+            "equal"
+          ],
+          [
+            " ≠ ",
+            "unequal"
+          ],
+          [
+            " < ",
+            "right_bigger"
+          ],
+          [
+            " > ",
+            "left_bigger"
+          ],
+          [
+            " ≥ ",
+            "left_equal_bigger"
+          ],
+          [
+            " ≤ ",
+            "right_equal_bigger"
+          ]
+        ]
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_value",
+        "name": "NAME"
+      },
+      {
+        "type": "input_statement",
+        "name": "v1_statement"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 30,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "drone_upside",
+    "message0": "👍 위로 %1 cm",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "v1_num",
+        "value": 0
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 0,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "drone_down",
+    "message0": "👎 아래로 %1 cm",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "v1_num",
+        "value": 0
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 0,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "drone_right",
+    "message0": "➡️ 오른쪽으로 %1 cm",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "v1_num",
+        "value": 0
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "drone_left",
+    "message0": "⬅️ 왼쪽으로 %1 cm",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "v1_num",
+        "value": 0
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "drone_backward",
+    "message0": "⬇️ 뒤로 %1 cm",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "v1_num",
+        "value": 0
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "drone_forward",
+    "message0": "⬆️ 앞으로 %1 cm",
+    "args0": [
+      {
+        "type": "field_number",
+        "name": "v1_num",
+        "value": 0
+      }
+    ],
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 180,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "drone_start",
+    "message0": "🚩 드론 띄우기",
+    "nextStatement": null,
+    "colour": 60,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "drone_land",
+    "message0": "🛬 드론 착륙",
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 60,
+    "tooltip": "",
+    "helpUrl": ""
   }
 
 
@@ -52,4 +249,4 @@
 
 
 
-]
+    ]

@@ -19,3 +19,77 @@ Blockly.JavaScript['equal'] = function(block) {
 // TODO: Change ORDER_NONE to the correct strength.
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+
+
+Blockly.JavaScript['coding_for'] = function(block) {
+  var number_v1_numberic = block.getFieldValue('v1_numberic');
+  var statements_v2_statement = Blockly.JavaScript.statementToCode(block, 'v2_statement');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['coding_if'] = function(block) {
+  var value_v1_value = Blockly.JavaScript.valueToCode(block, 'v1_value', Blockly.JavaScript.ORDER_ATOMIC);
+  var dropdown_v2_dropdown = block.getFieldValue('v2_dropdown');
+  var value_name = Blockly.JavaScript.valueToCode(block, 'NAME', Blockly.JavaScript.ORDER_ATOMIC);
+  var statements_v1_statement = Blockly.JavaScript.statementToCode(block, 'v1_statement');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_upside'] = function(block) {
+  var number_v1_num = block.getFieldValue('v1_num');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_down'] = function(block) {
+  var number_v1_num = block.getFieldValue('v1_num');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_right'] = function(block) {
+  var number_v1_num = block.getFieldValue('v1_num');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_left'] = function(block) {
+  var number_v1_num = block.getFieldValue('v1_num');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_backward'] = function(block) {
+  var number_v1_num = block.getFieldValue('v1_num');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_forward'] = function(block) {
+  var number_v1_num = block.getFieldValue('v1_num');
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_start'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};
+
+Blockly.JavaScript['drone_land'] = function(block) {
+  // TODO: Assemble JavaScript into code variable.
+  var code = '...;\n';
+  return code;
+};

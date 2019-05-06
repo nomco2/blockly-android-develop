@@ -14,6 +14,39 @@
   -->
 
 <toolbox>
+
+
+    <category name="드론" colour="210">
+        <block type="drone_start"></block>
+        <block type="drone_land"></block>
+        <block type="drone_forward"></block>
+
+        <block type="drone_backward"></block>
+
+        <block type="drone_left"></block>
+
+        <block type="drone_right"></block>
+
+        <block type="drone_upside"></block>
+
+        <block type="drone_down"></block>
+
+    </category>
+    <category name="제어" colour="210">
+        <block type="control_if_start"></block>
+        <block type="coding_for"></block>
+        <!--<block type="control_iot_data_start"></block>-->
+
+
+    </category>
+
+    <category name="반복" colour="220">
+        <!--<block type="control_times_loop"></block>-->
+        <!--<block type="control_unlimited_loop"></block>-->
+        <!--<block type="control_while_loop"></block>-->
+
+    </category>
+
     <category name="Logic2" colour="210">
 
 
@@ -27,20 +60,6 @@
 
 
     </category>
-    <category name="제어" colour="210">
-        <block type="control_if_start"></block>
-        <!--<block type="control_iot_data_start"></block>-->
-
-
-    </category>
-
-    <category name="반복" colour="220">
-        <!--<block type="control_times_loop"></block>-->
-        <!--<block type="control_unlimited_loop"></block>-->
-        <!--<block type="control_while_loop"></block>-->
-
-    </category>
-
 <!--
         <block type="controls_if"></block>
         <block type="controls_whileUntil"></block>

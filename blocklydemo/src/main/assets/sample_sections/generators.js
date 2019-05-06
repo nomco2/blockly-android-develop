@@ -47,3 +47,5 @@ Blockly.JavaScript['output_no_input'] = function(block) {
 Blockly.JavaScript['statement_no_next'] = function(block) {
   return 'statement_no_next';
 };
+
+
