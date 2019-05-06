@@ -129,6 +129,44 @@
     "helpUrl": ""
   },
   {
+    "type": "coding_while",
+    "message0": "%1 까지 반복하기 %2 %3",
+    "args0": [
+      {
+        "type": "input_value",
+        "name": "NAME"
+      },
+      {
+        "type": "input_dummy"
+      },
+      {
+        "type": "input_statement",
+        "name": "v2_statement"
+      }
+    ],
+    "inputsInline": true,
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 30,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "text_input",
+    "message0": "%1",
+    "args0": [
+      {
+        "type": "field_input",
+        "name": "v1_text",
+        "text": ""
+      }
+    ],
+    "output": null,
+    "colour": 270,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
     "type": "drone_upside",
     "message0": "👍 위로 %1 cm",
     "args0": [
@@ -242,9 +280,58 @@
     "colour": 60,
     "tooltip": "",
     "helpUrl": ""
+  },
+  {
+    "type": "fire_detect",
+    "message0": "🔥 화재 감지",
+    "output": null,
+    "colour": 345,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "fire_suppression",
+    "message0": "🔥 화재 진압 가동",
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 345,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+
+  {
+    "type": "dust_sensing",
+    "message0": "🌫 미세먼지 센서 값",
+    "output": null,
+    "colour": 135,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "dust_clean",
+    "message0": "💨 공기청정기 작동",
+    "previousStatement": null,
+    "nextStatement": null,
+    "colour": 135,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "delivery_ask",
+    "message0": "🏍 배달 요청",
+    "output": null,
+    "colour": 225,
+    "tooltip": "",
+    "helpUrl": ""
+  },
+  {
+    "type": "delivery_address",
+    "message0": "🏍 배달 위치 이동",
+    "output": null,
+    "colour": 225,
+    "tooltip": "",
+    "helpUrl": ""
   }
-
-
 
 
 

@@ -517,4 +517,304 @@
         <field name="HUE">60</field>
       </block>
     </value>
+  </block><block type="factory_base" id="gM,}NaWU:G*CIwxB`I!m" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">fire_detect</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="S(leC[JWwtAu4IFT[*CD">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0G!`r$wKgh)?$UTF%{9@">
+            <field name="TEXT">🔥 화재 감지</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="HX;S|6pmUC`Wt.:YiKnl" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!@(T(Lm`}HE%NKf21Po=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="AQ%0xCRR#wC4w[WVYLW`"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="CD[8A7{)80pjoAB${)%V">
+        <mutation colour="#a55b6d"></mutation>
+        <field name="HUE">345</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="gM,}NaWU:G*CIwxB`I!m" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">fire_suppression</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="S(leC[JWwtAu4IFT[*CD">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0G!`r$wKgh)?$UTF%{9@">
+            <field name="TEXT">🔥 화재 진압 가동</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="HX;S|6pmUC`Wt.:YiKnl" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!@(T(Lm`}HE%NKf21Po=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id="yv%UlX:/=t^g=K]@p5A8"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="`3#ki.RK73?^O^.+34|R"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="CD[8A7{)80pjoAB${)%V">
+        <mutation colour="#a55b6d"></mutation>
+        <field name="HUE">345</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="gM,}NaWU:G*CIwxB`I!m" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">dust_sensing</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="S(leC[JWwtAu4IFT[*CD">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0G!`r$wKgh)?$UTF%{9@">
+            <field name="TEXT">🌫 미세먼지 센서 값</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="HX;S|6pmUC`Wt.:YiKnl" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!@(T(Lm`}HE%NKf21Po=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="OF%oED3^_AL^aKhZd?Hd"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="CD[8A7{)80pjoAB${)%V">
+        <mutation colour="#5ba56d"></mutation>
+        <field name="HUE">135</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="gM,}NaWU:G*CIwxB`I!m" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">dust_clean</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="S(leC[JWwtAu4IFT[*CD">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0G!`r$wKgh)?$UTF%{9@">
+            <field name="TEXT">💨 공기청정기 작동</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="HX;S|6pmUC`Wt.:YiKnl" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!@(T(Lm`}HE%NKf21Po=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id=".Seql19.IFyTW:jLTgwD"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="?_!Q8-s-R)EaoO[,~?L%"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="CD[8A7{)80pjoAB${)%V">
+        <mutation colour="#5ba56d"></mutation>
+        <field name="HUE">135</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="gM,}NaWU:G*CIwxB`I!m" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">delivery_ask</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="S(leC[JWwtAu4IFT[*CD">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0G!`r$wKgh)?$UTF%{9@">
+            <field name="TEXT">🏍 배달 요청</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="HX;S|6pmUC`Wt.:YiKnl" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!@(T(Lm`}HE%NKf21Po=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="e7Vcaz~_W4FF#{n)BOk)"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="CD[8A7{)80pjoAB${)%V">
+        <mutation colour="#5b6da5"></mutation>
+        <field name="HUE">225</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="gM,}NaWU:G*CIwxB`I!m" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">delivery_address</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="S(leC[JWwtAu4IFT[*CD">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_static" id="0G!`r$wKgh)?$UTF%{9@">
+            <field name="TEXT">🏍 배달 위치 이동</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="HX;S|6pmUC`Wt.:YiKnl" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="!@(T(Lm`}HE%NKf21Po=" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="e7Vcaz~_W4FF#{n)BOk)"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="CD[8A7{)80pjoAB${)%V">
+        <mutation colour="#5b6da5"></mutation>
+        <field name="HUE">225</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="0BL6aO,E8o}L4waWXYop" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="BOTH"></mutation>
+    <field name="NAME">coding_while</field>
+    <field name="INLINE">INT</field>
+    <field name="CONNECTIONS">BOTH</field>
+    <statement name="INPUTS">
+      <block type="input_value" id="YU?96!X}v0%CMhcB~;/H">
+        <field name="INPUTNAME">NAME</field>
+        <field name="ALIGN">LEFT</field>
+        <value name="TYPE">
+          <shadow type="type_null" id="q)d4X0hk*iS=VNl.qw54"></shadow>
+        </value>
+        <next>
+          <block type="input_dummy" id="s^yCH}kZ_NMSw^XQ(F~f">
+            <field name="ALIGN">LEFT</field>
+            <statement name="FIELDS">
+              <block type="field_static" id="z5+B:|8QM;:))WD4BO;h">
+                <field name="TEXT">까지 반복하기</field>
+              </block>
+            </statement>
+            <next>
+              <block type="input_statement" id="W/(7e!hLO4IAK]1~jwgT">
+                <field name="INPUTNAME">v2_statement</field>
+                <field name="ALIGN">LEFT</field>
+                <value name="TYPE">
+                  <shadow type="type_null" id="Q.PmiiEjYgs^xJ{mg_9k"></shadow>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id=".!y=s+Eb+:IMKmm=W?.-" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="J~,`w62|pyvl0T)rWUhP" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="TOPTYPE">
+      <shadow type="type_null" id=",d4[JalMmIT{P|4Zc^)w"></shadow>
+    </value>
+    <value name="BOTTOMTYPE">
+      <shadow type="type_null" id="r%HDVJ;GC1(UIaBA$EYU"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id="nL0b;Ocwk*`xi7ywc@@b">
+        <mutation colour="#a5805b"></mutation>
+        <field name="HUE">30</field>
+      </block>
+    </value>
+  </block><block type="factory_base" id="*V7_1Z=*kOsPsl[j4E!i" deletable="false" movable="false" x="10" y="10">
+    <mutation connections="LEFT"></mutation>
+    <field name="NAME">text_input</field>
+    <field name="INLINE">AUTO</field>
+    <field name="CONNECTIONS">LEFT</field>
+    <statement name="INPUTS">
+      <block type="input_dummy" id="w(8.HSm/H0PeAEYM[H}-">
+        <field name="ALIGN">LEFT</field>
+        <statement name="FIELDS">
+          <block type="field_input" id="nY;s6!ENA(BJw@LTs8A?">
+            <field name="TEXT"></field>
+            <field name="FIELDNAME">v1_text</field>
+          </block>
+        </statement>
+      </block>
+    </statement>
+    <value name="TOOLTIP">
+      <block type="text" id="D/Njx#h$n=xD:ik:m#+Y" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="HELPURL">
+      <block type="text" id="=(kz]c_~`3K)?DI5Ady:" deletable="false" movable="false">
+        <field name="TEXT"></field>
+      </block>
+    </value>
+    <value name="OUTPUTTYPE">
+      <shadow type="type_null" id="6fO79-4U6WbWp8=Z!+B7"></shadow>
+    </value>
+    <value name="COLOUR">
+      <block type="colour_hue" id=":KuDRNIVl]wgy/!8p=`i">
+        <mutation colour="#805ba5"></mutation>
+        <field name="HUE">270</field>
+      </block>
+    </value>
   </block></xml>
