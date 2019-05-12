@@ -26,7 +26,7 @@ Blockly.JavaScript['coding_for'] = function(block) {
   var number_v1_numberic = block.getFieldValue('v1_numberic');
   var statements_v2_statement = Blockly.JavaScript.statementToCode(block, 'v2_statement');
   // TODO: Assemble JavaScript into code variable.
-  var code = '...;\n';
+  var code = '[{\"for_count\":\"' + number_v1_numberic + '\"}]' ;
   return code;
 };
 
